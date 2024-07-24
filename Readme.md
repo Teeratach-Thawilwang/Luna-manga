@@ -1,22 +1,22 @@
 ﻿# Index
 
-- Setup VPS
-  - 1.Install docker
-  - 2.Install docker-compose
-  - 3.Install nano
-  - 4.Copy nignx config and deploy script to server
-  - 5.Change permission file on server
-  - 6.Add deploy script to crontab
-- Login to docker hub
-- Push Docker Image
-  - 1.Tag the image
-  - 2.Push the image
-- Pull Docker Image
-- Deployment
+- [Setup VPS](#setup-vps)
+  - [1. Install docker](#1-install-docker)
+  - [2. Install docker-compose](#2-install-docker-compose)
+  - [3. Install nano](#3-install-nano)
+  - [4. Copy nignx config and deploy script to server](#4-copy-nignx-config-and-deploy-script-to-server)
+  - [5. Change permission file on server](#5-change-permission-file-on-server)
+  - [6. Add deploy script to crontab](#6-add-deploy-script-to-crontab)
+- [Login to docker hub](#login-to-docker-hub)
+- [Push Docker Image](#push-docker-image)
+  - [1. Tag the image](#1-tag-the-image)
+  - [2. Push the image](#2-push-the-image)
+- [Pull Docker Image](#pull-docker-image)
+- [Deployment](#deployment)
 
 ---
 
-### Setup VPS
+### [Setup VPS](#index)
 
 #### 1. Install docker
 
@@ -88,7 +88,7 @@ crontab -e # select nano editor
 
 <br/>
 
-### Login to docker hub
+### [Login to docker hub](#index)
 
 ```sh
 docker login
@@ -96,7 +96,7 @@ docker login
 
 <br/>
 
-### Push docker image
+### [Push docker image](#index)
 
 #### 1. Tag the image
 
@@ -118,7 +118,7 @@ docker push teeratachdocker/luna_manga:latest
 
 <br/>
 
-### Pull Docker Image
+### [Pull Docker Image](#index)
 
 ```sh
 docker pull [REGISTRYHOST/][USERNAME/]NAME[:TAG]
@@ -129,7 +129,7 @@ docker pull teeratachdocker/luna_manga
 
 <br/>
 
-### Deployment
+### [Deployment](#index)
 
 ```sh
 1. Build docker image
