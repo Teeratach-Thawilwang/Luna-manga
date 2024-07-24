@@ -1,0 +1,19 @@
+﻿services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.local.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    restart: unless-stopped
+    depends_on:
+      - app
+
+  app:
+    image: teeratachdocker/luna_manga:latest
+    ports:
+      - 8000
+    restart: unless-stopped
+    command: sh -c "serve -s dist -l 8000"

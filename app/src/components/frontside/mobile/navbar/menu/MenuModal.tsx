@@ -1,0 +1,58 @@
+﻿import { styled } from "styled-components";
+
+import Logo from "@components/frontside/mobile/Logo";
+import LogoutButtonItem from "@components/frontside/mobile/navbar/menu/LogoutButtonItem";
+import ProfileButtonItem from "@components/frontside/mobile/navbar/menu/ProfileButtonItem";
+import { NavigationModelEnum } from "@enums/frontside/NavigationModelEnum";
+import { box, color } from "@utils/Themes";
+
+export default function MenuModal({ isShow, setActive }: { isShow: boolean; setActive: (value: NavigationModelEnum) => void }) {
+  if (!isShow) {
+    return <></>;
+  }
+
+  return (
+    <Box>
+      <LogoBox>
+        <Logo />
+      </LogoBox>
+      <ProfileButtonItem setActive={setActive} />
+      <LogoutButtonItem />
+    </Box>
+  );
+}
+
+const Box = styled.div`
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100dvh - 60px);
+  padding: ${(props) => box(props).space.md};
+  padding-top: 0;
+
+  background-color: ${(props) => color(props).surface};
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  position: fixed;
+  top: 0;
+
+  z-index: ${(props) => box(props).zIndex.modal};
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const LogoBox = styled.div`
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  width: 100%;
+  height: fit-content;
+`;
