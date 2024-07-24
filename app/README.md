@@ -72,10 +72,10 @@
 #### 7. Set Script in package.json
 
 ```sh
-    "dev": "vite --mode dev",
+    "dev": "vite --mode dev --host",
 
     # start localhost with this command
-    npm run dev -- --host
+    npm run dev
 ```
 
 #### 8. Build dist for deployment
