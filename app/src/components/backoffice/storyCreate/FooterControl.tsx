@@ -23,7 +23,7 @@ export default function FooterControl() {
     const coverImageUploaded = await FileService.uploadFile(state.cover_image as File, CollectionEnum.STORY_IMAGE);
     const categoryIds = state.categories.map((category) => category.id);
     setPercentBar(100);
-    StoryCreateEditService.createStory(state.name!, state.type!, state.description!, state.status!, categoryIds!, coverImageUploaded.id);
+    StoryCreateEditService.createStory(state.name!, state.slug!, state.type!, state.description!, state.status!, categoryIds!, coverImageUploaded.id);
   }
 
   return (

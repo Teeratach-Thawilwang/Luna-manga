@@ -8,6 +8,7 @@ import InputCategories from "@components/backoffice/storyForm/InputCategories";
 import InputCoverImage from "@components/backoffice/storyForm/InputCoverImage";
 import InputDescription from "@components/backoffice/storyForm/InputDescription";
 import InputName from "@components/backoffice/storyForm/InputName";
+import InputSlug from "@components/backoffice/storyForm/InputSlug";
 import InputStatus from "@components/backoffice/storyForm/InputStatus";
 import InputType from "@components/backoffice/storyForm/InputType";
 import { CategoryTypeEnum } from "@enums/backoffice/CategoryTypeEnum";
@@ -20,6 +21,7 @@ export default function Detail({ title }: { title: string }) {
       <Content>
         <InputCoverImage />
         <InputName />
+        <InputSlug />
         <InputType initial={type as CategoryTypeEnum} />
         <InputStatus />
         <InputDescription />

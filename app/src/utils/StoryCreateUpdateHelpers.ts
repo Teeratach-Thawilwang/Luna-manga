@@ -1,10 +1,27 @@
-﻿import { CategoryListInterface } from "@interfaces/backoffice/CategoryInterface";
+﻿import slugify from "slugify";
+
+import { CategoryListInterface } from "@interfaces/backoffice/CategoryInterface";
 import { ImageInterface } from "@interfaces/backoffice/ImageInterface";
 import { StoryCreateEditSliceInterface } from "@interfaces/backoffice/StoryInterface";
 
+export function createSlug(name: string | null) {
+  if (name == null) {
+    return "";
+  }
+  const slugifiedName = slugify(name, { strict: true, lower: true });
+  return slugifiedName;
+}
+
 export function validateName(name: string | null) {
   if (name != null && name.length == 0) {
-    return "จำเป็นต้องกำหนดชื่อตอน";
+    return "จำเป็นต้องกำหนดชื่อเรื่อง";
+  }
+  return "";
+}
+
+export function validateSlug(slug: string | null) {
+  if (slug != null && slug.length == 0) {
+    return "จำเป็นต้องกำหนด slug";
   }
   return "";
 }
@@ -41,6 +58,7 @@ export function validateCoverImage(coverImage: File | ImageInterface | null) {
 export function createValidateParams(state: StoryCreateEditSliceInterface) {
   let validateParams: any = {};
   validateParams.name_error_message = validateName(state.name);
+  validateParams.slug_error_message = validateSlug(state.slug);
   validateParams.description_error_message = validateDescription(state.description);
   validateParams.categories_error_message = validateCategories(state.categories);
   validateParams.cover_image_error_message = validateCoverImage(state.cover_image);

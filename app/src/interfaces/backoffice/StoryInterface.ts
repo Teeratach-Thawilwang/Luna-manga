@@ -39,6 +39,7 @@ export interface GetStoryListParams {
 
 export interface CreateStoryParams {
   name: string;
+  slug: string;
   type: CategoryTypeEnum;
   description: string;
   status: StoryStatusEnum;
@@ -53,6 +54,7 @@ export interface GetStoryParams {
 export interface UpdateStoryParams {
   id: number;
   name: string;
+  slug: string;
   type: CategoryTypeEnum;
   description: string;
   status: StoryStatusEnum;
@@ -100,6 +102,7 @@ export interface StorySliceInterface {
 export interface StoryCreateEditSliceInterface {
   [key: string]: any;
   name: string | null;
+  slug: string | null;
   type: CategoryTypeEnum | null;
   description: string | null;
   status: StoryStatusEnum | null;
@@ -108,6 +111,7 @@ export interface StoryCreateEditSliceInterface {
 
   // validate message
   name_error_message: string;
+  slug_error_message: string;
   description_error_message: string;
   categories_error_message: string;
   cover_image_error_message: string;
@@ -140,6 +144,7 @@ export interface StoryInterface {
   [key: string]: any;
   id: number;
   name: string;
+  slug: string;
   type: CategoryTypeEnum;
   description: string;
   status: StoryStatusEnum;

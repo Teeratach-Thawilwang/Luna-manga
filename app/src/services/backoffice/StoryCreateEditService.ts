@@ -18,12 +18,14 @@ class StoryCreateEditService {
     store.dispatch(
       update({
         name: null,
+        slug: null,
         type: null,
         description: null,
         status: null,
         categories: [],
         cover_image: null,
         name_error_message: "",
+        slug_error_message: "",
         description_error_message: "",
         categories_error_message: "",
         cover_image_error_message: "",
@@ -45,6 +47,7 @@ class StoryCreateEditService {
 
   public createStory(
     name: string,
+    slug: string,
     type: CategoryTypeEnum,
     description: string,
     status: StoryStatusEnum,
@@ -53,6 +56,7 @@ class StoryCreateEditService {
   ): void {
     const params: CreateStoryParams = {
       name: name,
+      slug: slug,
       type: type,
       description: description,
       status: status,
@@ -71,7 +75,7 @@ class StoryCreateEditService {
         switch (e.data.error) {
           case ResponseErrorEnum.TOKEN_EXPIRED:
             AuthService.getTokenThenCallback(() => {
-              this.createStory(name, type, description, status, categoryIds, coverImageId);
+              this.createStory(name, slug, type, description, status, categoryIds, coverImageId);
             });
             break;
           default:
@@ -84,6 +88,7 @@ class StoryCreateEditService {
   public updateStory(
     id: number,
     name: string,
+    slug: string,
     type: CategoryTypeEnum,
     description: string,
     status: StoryStatusEnum,
@@ -93,6 +98,7 @@ class StoryCreateEditService {
     const params: UpdateStoryParams = {
       id: id,
       name: name,
+      slug: slug,
       type: type,
       description: description,
       status: status,
@@ -111,7 +117,7 @@ class StoryCreateEditService {
         switch (e.data.error) {
           case ResponseErrorEnum.TOKEN_EXPIRED:
             AuthService.getTokenThenCallback(() => {
-              this.updateStory(id, name, type, description, status, categoryIds, coverImageId);
+              this.updateStory(id, name, slug, type, description, status, categoryIds, coverImageId);
             });
             break;
           default:

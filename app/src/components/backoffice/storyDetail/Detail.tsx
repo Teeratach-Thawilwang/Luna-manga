@@ -7,6 +7,7 @@ import InputCategories from "@components/backoffice/storyForm/InputCategories";
 import InputCoverImage from "@components/backoffice/storyForm/InputCoverImage";
 import InputDescription from "@components/backoffice/storyForm/InputDescription";
 import InputName from "@components/backoffice/storyForm/InputName";
+import InputSlug from "@components/backoffice/storyForm/InputSlug";
 import InputStatus from "@components/backoffice/storyForm/InputStatus";
 import InputType from "@components/backoffice/storyForm/InputType";
 import StoryService from "@services/backoffice/StoryService";
@@ -31,6 +32,7 @@ export default function Detail() {
       <Content>
         <InputCoverImage initial={story.cover_image[0]} />
         <InputName initial={story.name} />
+        <InputSlug />
         <InputType initial={story.type} />
         <InputStatus initial={story.status} />
         <InputDescription initial={story.description} />

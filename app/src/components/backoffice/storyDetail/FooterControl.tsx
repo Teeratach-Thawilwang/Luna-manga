@@ -33,7 +33,16 @@ export default function FooterControl() {
     const coverImageId = await getCoverImageId(state);
     const categoryIds = state.categories.map((category) => category.id);
     setPercentBar(100);
-    StoryCreateEditService.updateStory(Number(id!), state.name!, state.type!, state.description!, state.status!, categoryIds!, coverImageId);
+    StoryCreateEditService.updateStory(
+      Number(id!),
+      state.name!,
+      state.slug!,
+      state.type!,
+      state.description!,
+      state.status!,
+      categoryIds!,
+      coverImageId,
+    );
   }
 
   function onDelete() {

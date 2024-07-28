@@ -4,6 +4,7 @@ import { StoryCreateEditSliceInterface } from "@interfaces/backoffice/StoryInter
 
 const initialState: StoryCreateEditSliceInterface = {
   name: null,
+  slug: null,
   type: null,
   description: null,
   status: null,
