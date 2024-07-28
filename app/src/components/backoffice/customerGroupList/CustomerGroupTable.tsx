@@ -39,7 +39,7 @@ export default function CustomerGroupTable() {
           <tr>
             <Th>ID</Th>
             <Th>Name</Th>
-            <Th>Total Customer</Th>
+            <Th># Customer</Th>
             <Th>Status</Th>
             <Th>Created At</Th>
             <Th>Updated At</Th>

@@ -42,7 +42,7 @@ export default function CustomerTable() {
             <Th>Nickname</Th>
             <Th>First name</Th>
             <Th>Last name</Th>
-            <Th>Total Story</Th>
+            <Th># Story</Th>
             <Th>Status</Th>
             <Th>Created At</Th>
             <Th>Updated At</Th>

@@ -43,7 +43,7 @@ export default function StoryTable() {
           <tr>
             <Th>ID</Th>
             <Th>Name</Th>
-            <Th>Total Chapters</Th>
+            <Th># Chapters</Th>
             <Th>Author</Th>
             <Th>Rating</Th>
             <Th>Status</Th>

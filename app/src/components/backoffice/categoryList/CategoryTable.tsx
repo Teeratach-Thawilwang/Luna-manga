@@ -40,7 +40,7 @@ export default function CategoryTable() {
           <tr>
             <Th>ID</Th>
             <Th>Name</Th>
-            <Th>Total Story</Th>
+            <Th># Story</Th>
             <Th>Type</Th>
             <Th>Status</Th>
             <Th>Created At</Th>

@@ -32,7 +32,7 @@ export default function UserRoleTable() {
             <Th>ID</Th>
             <Th>Name</Th>
             <Th>Description</Th>
-            <Th>Total Users</Th>
+            <Th># Users</Th>
             <Th>Created At</Th>
             <Th>Updated At</Th>
           </tr>

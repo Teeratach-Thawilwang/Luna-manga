@@ -40,7 +40,7 @@ export default function WidgetTable() {
           <tr>
             <Th>ID</Th>
             <Th>Name</Th>
-            <Th>Total Banner</Th>
+            <Th># Banner</Th>
             <Th>Type</Th>
             <Th>Status</Th>
             <Th>Created At</Th>
