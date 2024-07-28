@@ -175,7 +175,7 @@ const Tbody = styled.tbody`
     }
   }
 
-  :nth-child(2),
+  :nth-child(1),
   :nth-last-child(1),
   :nth-last-child(2) {
     text-align: left;
