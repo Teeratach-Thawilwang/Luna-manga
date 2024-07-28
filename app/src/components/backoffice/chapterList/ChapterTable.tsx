@@ -43,6 +43,7 @@ export default function ChapterTable() {
         <thead>
           <tr>
             <Th>ID</Th>
+            <Th>Story ID</Th>
             <Th>Name</Th>
             <Th>Chapter number</Th>
             <Th>Score</Th>
@@ -57,6 +58,7 @@ export default function ChapterTable() {
           {chapters.map((chapter) => (
             <tr key={chapter.id} onClick={() => navigate(`/backoffice/chapter/${chapter.id}`)}>
               <Td>{chapter.id}</Td>
+              <Td>{chapter.story_id}</Td>
               <Td>{chapter.name}</Td>
               <Td>{chapter.chapter_number}</Td>
               <Td>{chapter.score}</Td>
@@ -151,7 +153,7 @@ const Tbody = styled.tbody`
     }
   }
 
-  :nth-child(2),
+  :nth-child(3),
   :nth-last-child(1),
   :nth-last-child(2) {
     text-align: left;
