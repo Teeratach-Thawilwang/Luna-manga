@@ -167,12 +167,15 @@ docker pull teeratachdocker/luna_manga
 ### [Deployment](#index)
 
 ```sh
-1. Build docker image
+1. Build dist
+    npm run build
+
+2. Build docker image
     docker-compose up -d --build
 
-2. Push docker image
+3. Push docker image
     docker tag luna_manga teeratachdocker/luna_manga:latest
     docker push teeratachdocker/luna_manga:latest
 
-3. Restart Server
+4. Restart Server
 ```
