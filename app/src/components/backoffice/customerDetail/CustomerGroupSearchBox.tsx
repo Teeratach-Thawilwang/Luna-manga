@@ -62,7 +62,7 @@ export default function CustomerGroupSearchBox() {
   );
 }
 
-const SearchBox = styled.form<{ $isOpen: boolean; $itemCount: number }>`
+const SearchBox = styled.div<{ $isOpen: boolean; $itemCount: number }>`
   /* border: 1px solid red; */
   box-sizing: border-box;
   height: ${(props) => (props.$isOpen ? `calc(50px * ${props.$itemCount} + 50px + 2px)` : "50px")};
