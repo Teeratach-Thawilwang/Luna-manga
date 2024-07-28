@@ -16,7 +16,6 @@ export default function SearchBox() {
     if (chapterFilter?.q == undefined || chapterFilter?.q == "") {
       return;
     }
-    console.log(type);
     ChapterListService.loadChapterList(
       chapterFilter?.q,
       chapterFilter?.status,
@@ -33,7 +32,7 @@ export default function SearchBox() {
       <SearchInput
         type="text"
         name="q"
-        placeholder="ค้นหาด้วย Chapter Id, Story Name"
+        placeholder="ค้นหาด้วย Chapter Id, Chapter Name"
         autoComplete="nope"
         value={chapterFilter?.q ?? ""}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => ChapterListService.updateFilter({ q: e.target.value })}

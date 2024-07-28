@@ -33,7 +33,7 @@ export default function SearchBox() {
       <SearchInput
         type="text"
         name="q"
-        placeholder="ค้นหาด้วย Story Id, Story Name, Author id"
+        placeholder="ค้นหาด้วย Story Id, Story Name"
         autoComplete="nope"
         value={mangaFilter?.q ?? ""}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => StoryListService.updateFilter({ q: e.target.value })}
