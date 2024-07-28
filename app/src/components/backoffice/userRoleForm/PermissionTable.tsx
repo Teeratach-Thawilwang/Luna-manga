@@ -152,6 +152,7 @@ const CheckBox = styled.div`
     width: 20px;
     height: 20px;
     box-sizing: border-box;
+    color-scheme: light;
   }
 
   &:hover {
