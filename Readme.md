@@ -7,6 +7,7 @@
   - [4. Copy nignx config and deploy script to server](#4-copy-nignx-config-and-deploy-script-to-server)
   - [5. Change permission file on server](#5-change-permission-file-on-server)
   - [6. Add deploy script to crontab](#6-add-deploy-script-to-crontab)
+- [Setup ssh with pem](#setup-ssh-with-pem)
 - [Login to docker hub](#login-to-docker-hub)
 - [Push Docker Image](#push-docker-image)
   - [1. Tag the image](#1-tag-the-image)
@@ -88,6 +89,40 @@ crontab -e # select nano editor
 
 <br/>
 
+### [Setup ssh with pem](#index)
+
+```sh
+  # 1. Create rsa private, public key
+  ssh-keygen -t rsa -b 2048
+
+  # 2. Save rsa private to client
+
+  # 3. Add rsa.pub to server at authorized_keys on .ssh directory
+  nano ~/.ssh/authorized_keys
+
+  # 4. Change ssh config
+  sudo nano /etc/ssh/sshd_config
+      # set PasswordAuthentication no
+      # set PubkeyAuthentication yes
+
+  # 5. Restart ssh service
+  sudo systemctl restart sshd
+
+  # 6. Test ssh on client to server
+  ssh -i <path_to_rsa_private_file> <username>@<VPS_IP_Address>
+
+  # 7. Add Remote ssh on vscode
+  Host <Name_SSH>
+    HostName <VPS_IP_Address>
+    User <username>
+    IdentityFile <path_to_rsa_private_file>
+    # passphrase <comment_passphrase_to_remind_yourself>
+
+
+```
+
+<br/>
+
 ### [Login to docker hub](#index)
 
 ```sh
@@ -133,9 +168,11 @@ docker pull teeratachdocker/luna_manga
 
 ```sh
 1. Build docker image
-    docker-compose up -d build
+    docker-compose up -d --build
 
 2. Push docker image
+    docker tag luna_manga teeratachdocker/luna_manga:latest
+    docker push teeratachdocker/luna_manga:latest
 
 3. Restart Server
 ```
