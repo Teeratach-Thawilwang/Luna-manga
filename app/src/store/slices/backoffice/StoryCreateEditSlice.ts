@@ -12,6 +12,7 @@ const initialState: StoryCreateEditSliceInterface = {
   cover_image: null,
 
   name_error_message: "",
+  slug_error_message: "",
   description_error_message: "",
   categories_error_message: "",
   cover_image_error_message: "",

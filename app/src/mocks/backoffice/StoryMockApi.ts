@@ -105,6 +105,7 @@ function createResponse(params: CreateStoryParams): CreateStoryResponse {
   return {
     id: faker.number.int({ min: 1, max: 1000 }),
     name: name,
+    slug: params.slug,
     type: params.type,
     description: params.description,
     status: params.status,
@@ -118,10 +119,12 @@ function createResponse(params: CreateStoryParams): CreateStoryResponse {
 function showResponse(params: GetStoryParams): GetStoryResponse {
   let name = faker.word.words({ count: { min: 1, max: 10 } });
   name = name.charAt(0).toUpperCase() + name.slice(1);
+  const slug = name.replace(" ", "-");
   const type = randomEnum<CategoryTypeEnum>(CategoryTypeEnum);
   return {
     id: params.id,
     name: name,
+    slug: slug,
     type: type,
     description: faker.word.words({ count: { min: 5, max: 20 } }),
     status: randomEnum<StoryStatusEnum>(StoryStatusEnum),
@@ -138,6 +141,7 @@ function updateResponse(params: UpdateStoryParams): UpdateStoryResponse {
   return {
     id: params.id,
     name: name,
+    slug: params.slug,
     type: params.type,
     description: params.description,
     status: params.status,
