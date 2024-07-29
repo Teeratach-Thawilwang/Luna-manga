@@ -3,10 +3,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 import SwiperButton from "@components/frontside/tablet/SwiperButton";
@@ -24,13 +21,18 @@ export default React.memo(function WidgetTypeStoryList(widget: WidgetInterface) 
       <Container>
         <SwiperButton swiperRef={swiperRef} direction="Previous" />
         <Swiper
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true,
+          }}
           slidesPerView={5}
           slidesPerGroupSkip={5}
           grabCursor={true}
           loop={true}
           speed={150}
           pagination={{ clickable: true }}
-          modules={[Pagination, Navigation]}
+          modules={[Autoplay, Pagination, Navigation]}
           onBeforeInit={(swiper) => (swiperRef.current = swiper)}
         >
           {storyBanners}
