@@ -17,7 +17,7 @@ export default React.memo(function SwiperButton(props: SwiperButton) {
   let element;
   if (props.direction == "Previous") {
     element = (
-      <Box left="0px" right="auto" onClick={() => props.swiperRef?.current?.slidePrev()}>
+      <Box $left="0px" $right="auto" onClick={() => props.swiperRef?.current?.slidePrev()}>
         <ExpandLeftIcon />
       </Box>
     );
@@ -25,7 +25,7 @@ export default React.memo(function SwiperButton(props: SwiperButton) {
 
   if (props.direction == "Next") {
     element = (
-      <Box left="auto" right="0px" onClick={() => props.swiperRef?.current?.slideNext()}>
+      <Box $left="auto" $right="0px" onClick={() => props.swiperRef?.current?.slideNext()}>
         <ExpandRightIcon />
       </Box>
     );
@@ -34,7 +34,7 @@ export default React.memo(function SwiperButton(props: SwiperButton) {
   return <>{element}</>;
 });
 
-const Box = styled.div<{ left: string; right: string }>`
+const Box = styled.div<{ $left: string; $right: string }>`
   /* border: 1px solid red; */
   box-sizing: border-box;
   width: 35px;
@@ -48,8 +48,8 @@ const Box = styled.div<{ left: string; right: string }>`
 
   position: absolute;
   top: 45%;
-  left: ${(props) => props.left};
-  right: ${(props) => props.right};
+  left: ${(props) => props.$left};
+  right: ${(props) => props.$right};
   transform: translateY(-50%);
 
   opacity: 0.6;
