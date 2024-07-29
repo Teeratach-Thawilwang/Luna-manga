@@ -17,8 +17,9 @@ export default React.memo(function WidgetTypeStoryWindow(widget: WidgetInterface
       <Container>
         <Swiper
           autoplay={{
-            delay: 1000,
+            delay: 1500,
             disableOnInteraction: true,
+            pauseOnMouseEnter: true,
           }}
           slidesPerView={1}
           grabCursor={true}

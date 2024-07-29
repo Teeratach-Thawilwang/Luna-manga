@@ -20,7 +20,7 @@ export default React.memo(function WidgetTypeAdvertisementMedium(widget: WidgetI
       <Container>
         <Swiper
           autoplay={{
-            delay: 2000,
+            delay: 1200,
             disableOnInteraction: true,
           }}
           slidesPerView={1}
