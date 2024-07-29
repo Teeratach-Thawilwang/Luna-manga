@@ -46,8 +46,9 @@ export default function Category() {
     if (isStoryLoaded == false && isCategoryLoaded == true) {
       const categoryAll = categories.filter((category) => {
         return category.name == "ทั้งหมด" && category.type == CategoryTypeEnum.MANGA;
-      })[0];
-      CategoryStoryService.loadIndex(categoryAll.id);
+      });
+      const categorySelectedId = categoryAll.length == 0 ? categories[0].id : categoryAll[0].id;
+      CategoryStoryService.loadIndex(categorySelectedId);
     }
   }, [isCategoryLoaded]);
 
