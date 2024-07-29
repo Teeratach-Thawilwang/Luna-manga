@@ -2,9 +2,6 @@ import React from "react";
 
 import styled from "styled-components";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -22,6 +19,7 @@ export default React.memo(function WidgetTypeAdvertisementSmall(widget: WidgetIn
           autoplay={{
             delay: 2000,
             disableOnInteraction: true,
+            pauseOnMouseEnter: true,
           }}
           spaceBetween={20}
           slidesPerView={2}
