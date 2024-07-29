@@ -2,9 +2,6 @@ import React from "react";
 
 import styled from "styled-components";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -20,12 +17,11 @@ export default React.memo(function WidgetTypeAdvertisementMedium(widget: WidgetI
       <Container>
         <Swiper
           autoplay={{
-            delay: 2000,
+            delay: 1200,
             disableOnInteraction: true,
+            pauseOnMouseEnter: true,
           }}
-          slidesPerView={1}
-          slidesPerGroup={1}
-          slidesPerGroupSkip={1}
+          slidesPerView={1.00001}
           grabCursor={true}
           loop={true}
           speed={350}
@@ -68,7 +64,7 @@ function createSlideBanner(widget: WidgetInterface) {
   return widget.banners?.map((banner) => {
     return (
       <SwiperSlide key={banner.id}>
-        <BannerTypeAdvertisementMedium {...banner} key={banner.id} />
+        <BannerTypeAdvertisementMedium {...banner} />
       </SwiperSlide>
     );
   });
