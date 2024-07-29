@@ -55,7 +55,7 @@ const Box = styled.div`
   /* border: 1px solid red; */
   box-sizing: border-box;
   width: 490px;
-  height: 235px;
+  height: 150px;
   /* margin-top: 20px; */
   position: relative;
 `;
@@ -164,7 +164,7 @@ function createImageElement(url: string) {
     return (
       <>
         <Image src={url} />
-        <PlaceHolder>490 x 235 Pixels</PlaceHolder>
+        <PlaceHolder>490 x 150 Pixels</PlaceHolder>
       </>
     );
   }
@@ -174,7 +174,7 @@ function createImageElement(url: string) {
       <DefaultImage>
         <CameraIcon />
         <Text>Select Image</Text>
-        <Text>490 x 235 Pixels</Text>
+        <Text>490 x 150 Pixels</Text>
       </DefaultImage>
     </>
   );

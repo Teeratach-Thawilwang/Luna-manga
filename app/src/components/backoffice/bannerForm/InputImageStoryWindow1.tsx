@@ -164,7 +164,7 @@ function createImageElement(url: string) {
     return (
       <>
         <Image src={url} />
-        <PlaceHolder>1000 x 1000 Pixels</PlaceHolder>
+        <PlaceHolder>490 x 490 Pixels</PlaceHolder>
       </>
     );
   }
@@ -174,7 +174,7 @@ function createImageElement(url: string) {
       <DefaultImage>
         <CameraIcon />
         <Text>Select Image</Text>
-        <Text>1000 x 1000 Pixels</Text>
+        <Text>490 x 490 Pixels</Text>
       </DefaultImage>
     </>
   );
