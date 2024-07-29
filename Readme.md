@@ -30,6 +30,9 @@ scp -rp ./deploy/* <username>@<IP_address>:/root/main
 # or use pem if you setup already.
 scp -i <path_to_private_pem> -rp ./deploy/* <username>@<IP_address>:/root/main
 
+#Example
+scp -i Frontend.pem -rp ./deploy/* root@luna-manga.com:/root/main
+
 # Change permission to executable
 chmod -R +x /root/main
 ```

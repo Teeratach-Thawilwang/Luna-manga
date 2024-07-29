@@ -5,6 +5,8 @@ services:
       - 80:80
     volumes:
       - ./nginx/nginx.setuphttps.conf:/etc/nginx/nginx.conf
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     restart: unless-stopped
     depends_on:
       - app
@@ -21,3 +23,11 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
+# run docker-compose
+# docker-compose -f docker-compose-setuphttps.yml up -d
+
+# run test port 80
+# curl http://www.luna-manga.com/.well-known/acme-challenge/test
+
+# create certificate
+# docker-compose -f docker-compose-setuphttps.yml run --rm certbot certonly --webroot -w /var/www/certbot -d luna-manga.com -d www.luna-manga.com
