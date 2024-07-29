@@ -2,6 +2,7 @@
 
 import { ResponseErrorEnum } from "@enums/ResponseErrorEnum";
 import { CategoryTypeEnum } from "@enums/frontside/CategoryTypeEnum";
+import { OrderByEnum } from "@enums/frontside/OrderByEnum";
 import { AxiosResponseError } from "@interfaces/ResponseErrorInterface";
 import { CategoryIndexParams, CategoryInterface, CategorySliceInterface } from "@interfaces/frontside/CategoryInterface";
 import CategoryApi from "@repositories/frontside/CategoryApi";
@@ -55,7 +56,7 @@ class CategoryService {
     store.dispatch(pushCategories(data));
   }
 
-  public loadIndex(page: number = 1, perPage: number | string = "all", orderBy?: string): void {
+  public loadIndex(page: number = 1, perPage: number | string = "all", orderBy: OrderByEnum = OrderByEnum.ASC): void {
     store.dispatch(update({ is_loading: true }));
 
     const params: CategoryIndexParams = {
