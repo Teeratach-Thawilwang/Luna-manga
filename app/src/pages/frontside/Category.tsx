@@ -10,6 +10,7 @@ import GoTopButtonTablet from "@components/frontside/tablet/GoTopButton";
 import DetailTablet from "@components/frontside/tablet/categoryDetail/Detail";
 import NavbarTablet from "@components/frontside/tablet/navbar/Navbar";
 import { ResponsiveEnum } from "@enums/ResponsiveEnum";
+import { CategoryTypeEnum } from "@enums/frontside/CategoryTypeEnum";
 import CategoryService from "@services/frontside/CategoryService";
 import CategoryStoryService from "@services/frontside/CategoryStoryService";
 import StorySearchService from "@services/frontside/StorySearchService";
@@ -43,7 +44,10 @@ export default function Category() {
 
   useEffect(() => {
     if (isStoryLoaded == false && isCategoryLoaded == true) {
-      CategoryStoryService.loadIndex(categories[0].id);
+      const categoryAll = categories.filter((category) => {
+        return category.name == "ทั้งหมด" && category.type == CategoryTypeEnum.MANGA;
+      })[0];
+      CategoryStoryService.loadIndex(categoryAll.id);
     }
   }, [isCategoryLoaded]);
 
