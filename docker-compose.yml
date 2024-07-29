@@ -3,10 +3,8 @@
     image: nginx:latest
     ports:
       - 80:80
-      - 443:443
     volumes:
-      - ./nginx/nginx.local.conf:/etc/nginx/nginx.conf
-      - ./nginx/ssl:/etc/nginx/ssl
+      - ./deploy/nginx/nginx.local.conf:/etc/nginx/nginx.conf
     restart: unless-stopped
     depends_on:
       - app

@@ -1,12 +1,9 @@
 ﻿# Index
 
 - [Setup VPS](#setup-vps)
-  - [1. Install docker](#1-install-docker)
-  - [2. Install docker-compose](#2-install-docker-compose)
-  - [3. Install nano](#3-install-nano)
-  - [4. Copy nignx config and deploy script to server](#4-copy-nignx-config-and-deploy-script-to-server)
-  - [5. Change permission file on server](#5-change-permission-file-on-server)
-  - [6. Add deploy script to crontab](#6-add-deploy-script-to-crontab)
+  - [1. Copy deploy material to server](#1-copy-deploy-material-to-server)
+  - [2. Install docker, docker-compose, nano](#2-install-docker-docker-compose-nano)
+  - [3. Add deploy script to crontab](#3-add-deploy-script-to-crontab)
 - [Setup ssh with pem](#setup-ssh-with-pem)
 - [Login to docker hub](#login-to-docker-hub)
 - [Push Docker Image](#push-docker-image)
@@ -19,66 +16,40 @@
 
 ### [Setup VPS](#index)
 
-#### 1. Install docker
-
-```sh
-sudo apt update
-
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-
-sudo apt install docker-ce
-
-Reference: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
-```
-
-#### 2. Install docker-compose
-
-```sh
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-sudo chmod +x /usr/local/bin/docker-compose
-
-docker-compose --version
-
-Reference: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
-```
-
-#### 3. Install nano
-
-```sh
-apt install nano
-
-# Tip
-ctrl + o = save
-ctrl + x = exit
-```
-
-#### 4. Copy nignx config and deploy script to server
-
-```sh
-scp -rp ./nginx <username>@<IP_address>:/root/main
-
-scp -rp ./deploy.sh <username>@<IP_address>:/root/main
-```
-
-#### 5. Change permission file on server
+#### 1. Copy deploy material to server
 
 ```sh
 # Shell to server
 ssh <username>@<IP_address>
 
-# Go to /root/main/
-cd /root/main
+# Create /root/main folder
+mkdir /root/main
 
-# Change permission to able to execute
-chmod +x ./deploy.sh nginx/*
+# Copy file to server
+scp -rp ./deploy/* <username>@<IP_address>:/root/main
+# or use pem if you setup already.
+scp -i <path_to_private_pem> -rp ./deploy/* <username>@<IP_address>:/root/main
+
+# Change permission to executable
+chmod -R +x /root/main
 ```
 
-#### 6. Add deploy script to crontab
+#### 2. Install docker, docker-compose, nano
+
+```sh
+# Run setup.sh script
+./setup.sh
+
+# Tip Nano
+ctrl + o = save
+ctrl + x = exit
+
+Reference: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+
+Reference: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
+```
+
+#### 3. Add deploy script to crontab
 
 ```sh
 crontab -e # select nano editor
@@ -86,8 +57,6 @@ crontab -e # select nano editor
 # Place this command to end of file.
 @reboot /root/main/deploy.sh
 ```
-
-<br/>
 
 ### [Setup ssh with pem](#index)
 
@@ -102,8 +71,8 @@ crontab -e # select nano editor
 
   # 4. Change ssh config
   sudo nano /etc/ssh/sshd_config
-      # set PasswordAuthentication no
       # set PubkeyAuthentication yes
+      # set PasswordAuthentication no
 
   # 5. Restart ssh service
   sudo systemctl restart sshd
@@ -117,19 +86,13 @@ crontab -e # select nano editor
     User <username>
     IdentityFile <path_to_rsa_private_file>
     # passphrase <comment_passphrase_to_remind_yourself>
-
-
 ```
-
-<br/>
 
 ### [Login to docker hub](#index)
 
 ```sh
 docker login
 ```
-
-<br/>
 
 ### [Push docker image](#index)
 
@@ -151,8 +114,6 @@ docker push [REGISTRYHOST/][USERNAME/]NAME[:TAG]
 docker push teeratachdocker/luna_manga:latest
 ```
 
-<br/>
-
 ### [Pull Docker Image](#index)
 
 ```sh
@@ -161,8 +122,6 @@ docker pull [REGISTRYHOST/][USERNAME/]NAME[:TAG]
 # For example
 docker pull teeratachdocker/luna_manga
 ```
-
-<br/>
 
 ### [Deployment](#index)
 

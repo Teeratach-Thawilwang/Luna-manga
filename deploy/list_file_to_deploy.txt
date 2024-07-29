@@ -1,4 +1,7 @@
-﻿         Local                            Server
-- deploy/deploy.sh              => /root/main/deploy.sh
-- deploy/docker-compose.yml     => /root/main/docker-compose.yml
-- nginx/*                       => /root/main/nginx/*
+         Local                                       Server
+- deploy/setup.sh                          => /root/main/setup.sh
+- deploy/deploy.sh                         => /root/main/deploy.sh
+- deploy/docker-compose.yml                => /root/main/docker-compose.yml
+- deploy/docker-compose-setuphttps.yml     => /root/main/docker-compose-setuphttps.yml
+- deploy/nginx/*                           => /root/main/nginx/*
+- deploy/certbot/*                         => /root/main/certbot/*

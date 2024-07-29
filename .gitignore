@@ -12,7 +12,9 @@ dist
 dist-ssr
 *.local
 .env
-nginx/ssl/*
+.env.dev
+.env.production
+*/nginx/ssl/*
 
 # Editor directories and files
 .vscode/*
