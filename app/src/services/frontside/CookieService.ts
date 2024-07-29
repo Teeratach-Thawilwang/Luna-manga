@@ -35,9 +35,9 @@ class CookieService {
   }
 
   public setLogout(): void {
-    Cookies.remove("is_login");
-    Cookies.remove("access_token");
-    Cookies.remove("refresh_token");
+    Cookies.remove("is_login", this.option);
+    Cookies.remove("access_token", this.option);
+    Cookies.remove("refresh_token", this.option);
   }
 
   public setAccessToken(accessToken: string, expiredDays: number = 1): void {

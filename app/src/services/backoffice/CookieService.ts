@@ -35,9 +35,9 @@ class CookieService {
   }
 
   public setLogout(): void {
-    Cookies.remove("is_login_backoffice");
-    Cookies.remove("access_token_backoffice");
-    Cookies.remove("refresh_token_backoffice");
+    Cookies.remove("is_login_backoffice", this.option);
+    Cookies.remove("access_token_backoffice", this.option);
+    Cookies.remove("refresh_token_backoffice", this.option);
   }
 
   public setAccessToken(accessToken: string, expiredDays: number = 1): void {
