@@ -83,10 +83,11 @@ const ImageBox = styled(Link)`
   margin: ${(props) => box(props).space.sm};
   border-radius: ${(props) => box(props).borderRadius.md};
 
-  overflow: hidden;
+  /* overflow: hidden; */
 
   /* width / height = 200px / 300px */
   aspect-ratio: calc(200 / 300);
+  object-fit: cover;
 `;
 
 function getBoxLoading(isLoading: boolean) {

@@ -48,9 +48,9 @@ const ProfileImageBox = styled.div`
   /* border: 1px solid red; */
   box-sizing: border-box;
   width: 70px;
-  height: 70px;
 
   aspect-ratio: 1;
+  object-fit: cover;
 
   img,
   svg {
@@ -126,7 +126,7 @@ const IconBox = styled.div`
     height: ${(props) => font(props).size["2xl"]};
 
     path {
-      stroke: ${(props) => color(props).onSurfaceVariant};
+      stroke: ${(props) => color(props).outlineVariant};
     }
   }
 `;

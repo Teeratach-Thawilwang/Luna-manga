@@ -21,7 +21,7 @@ export default function StorySearchItem({ story }: { story: StorySearchInterface
 }
 
 const Box = styled(Link)`
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   width: 100%;
   height: fit-content;
   text-decoration: none;
@@ -45,10 +45,11 @@ const Box = styled(Link)`
 const Image = styled.img`
   /* border: 1px solid red; */
   box-sizing: border-box;
-  width: 80px;
-  height: 80px;
+  height: 100px;
   margin: ${(props) => box(props).space.sm};
   border-radius: ${(props) => box(props).borderRadius.md};
+
+  aspect-ratio: calc(200 / 300);
 
   object-fit: cover;
 `;

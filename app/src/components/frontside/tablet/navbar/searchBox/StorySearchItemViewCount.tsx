@@ -28,6 +28,7 @@ const Box = styled.div`
   /* border: 1px solid red; */
   box-sizing: border-box;
   width: 150px;
+  min-width: 150px;
   margin: 0 ${(props) => box(props).space.sm};
 
   display: grid;

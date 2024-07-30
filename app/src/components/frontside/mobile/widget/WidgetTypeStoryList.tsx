@@ -25,7 +25,7 @@ export default React.memo(function WidgetTypeStoryList(widget: WidgetInterface) 
             disableOnInteraction: true,
           }}
           slidesPerView={3.2}
-          slidesPerGroupSkip={3.2}
+          slidesPerGroupSkip={1}
           grabCursor={true}
           loop={true}
           speed={150}

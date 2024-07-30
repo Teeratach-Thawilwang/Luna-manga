@@ -35,7 +35,7 @@ const Name = styled.div`
 
   color: ${(props) => color(props).onSurface};
 
-  font-size: ${(props) => font(props).size.lg};
+  font-size: ${(props) => font(props).size.md};
   font-weight: ${(props) => font(props).weight.bold};
 
   white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */

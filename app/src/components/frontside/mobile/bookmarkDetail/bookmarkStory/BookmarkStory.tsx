@@ -79,13 +79,14 @@ const BoxLoading = styled.div`
 const ImageBox = styled(Link)`
   /* border: 1px solid red; */
   box-sizing: border-box;
-  height: 95px;
+  height: 110px;
   margin: ${(props) => box(props).space.sm};
   border-radius: ${(props) => box(props).borderRadius.md};
 
-  overflow: hidden;
+  /* overflow: hidden; */
 
   aspect-ratio: calc(200 / 300);
+  object-fit: cover;
 `;
 
 function getBoxLoading(isLoading: boolean) {
