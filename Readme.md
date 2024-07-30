@@ -140,4 +140,7 @@ docker pull teeratachdocker/luna_manga
     docker push teeratachdocker/luna_manga:latest
 
 4. Restart Server
+
+5. Check container status
+    docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"
 ```
