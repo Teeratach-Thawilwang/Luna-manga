@@ -19,7 +19,7 @@
 // params RegisterParams
 // return RegisterResponse: 200 ok
 
-// confirmEmail [method post] : '/confirm-email'
+// confirmEmail [method post] : '/confirm-register-email'
 // params ConfirmEmailParams
 // return ConfirmEmailResponse: 200 ok
 

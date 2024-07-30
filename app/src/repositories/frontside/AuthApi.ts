@@ -63,7 +63,7 @@ class AuthApi {
     if (import.meta.env.VITE_IS_MOCK_DATA === "true") {
       return AuthMockApi.confirmEmail(params, true);
     }
-    return ApiClient.postJson<ConfirmEmailParams, ConfirmEmailResponse>(`${this.baseUrl}/confirm-email`, params);
+    return ApiClient.postJson<ConfirmEmailParams, ConfirmEmailResponse>(`${this.baseUrl}/confirm-register-email`, params);
   }
 
   public async forgotPassword(params: ForgotPasswordParams): ReturnType<ForgotPasswordResponse> {
