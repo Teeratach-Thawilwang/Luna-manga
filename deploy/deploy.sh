@@ -1,7 +1,7 @@
 #!/bin/bash
 
+cd /root/main/
 docker rmi $(docker images -f "dangling=true" -q)
-
 docker-compose stop app
 docker-compose rm app --force
 
