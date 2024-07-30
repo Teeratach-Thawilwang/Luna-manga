@@ -12,6 +12,7 @@ export default function Detail() {
         </IconBox>
         <Title>Reset Password.</Title>
         <Text>ระบบกำลังส่งลิงค์เพื่อกำหนดรหัสผ่านใหม่ไปยังอีเมลของคุณ</Text>
+        <Text>หากไม่พบอีเมล กรุณาตรวจสอบในถังขยะหรือจดหมายขยะ</Text>
       </Card>
     </Box>
   );

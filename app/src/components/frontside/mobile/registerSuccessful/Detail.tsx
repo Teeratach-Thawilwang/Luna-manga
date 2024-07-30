@@ -15,7 +15,8 @@ export default function Detail() {
           <CorrectIcon />
         </CorrectIconBox>
         <Title>Register successful.</Title>
-        <Text>สมัครสมาชิกสำเร็จ กรุณาทำการยืนยันอีเมลก่อนเข้าสู่ระบบ</Text>
+        <Text>สมัครสมาชิกสำเร็จ กรุณาทำการยืนยันผ่านอีเมลก่อนเข้าสู่ระบบ</Text>
+        <Text>หากไม่พบอีเมล กรุณาตรวจสอบในถังขยะหรือจดหมายขยะ</Text>
       </Card>
     </Box>
   );
