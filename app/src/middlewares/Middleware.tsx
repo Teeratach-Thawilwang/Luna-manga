@@ -1,6 +1,7 @@
 ﻿import { useEffect, useState } from "react";
 
 import ThemeColorProvider from "@middlewares/ThemeColorProvider";
+import { navigateTo } from "@utils/Helpers";
 
 interface MiddlewareInterface {
   middleware: (() => Promise<boolean>)[];
@@ -12,8 +13,10 @@ export default function Middleware({ middleware, children }: MiddlewareInterface
 
   useEffect(() => {
     async function handle() {
-      const isAllValid = await validateMiddleware(middleware);
-      setIsValid(isAllValid);
+      await defaultMiddleware();
+
+      const isAllMIddlewareValid = await validateMiddleware(middleware);
+      setIsValid(isAllMIddlewareValid);
     }
     handle();
   }, [children]);
@@ -35,4 +38,14 @@ async function validateMiddleware(middleware: (() => Promise<boolean>)[]) {
     }
   }
   return isAllMiddlewareValid;
+}
+
+async function defaultMiddleware() {
+  maintenanceMiddleware();
+}
+
+function maintenanceMiddleware() {
+  if (import.meta.env.VITE_MAINTENANCE_MODE == "True") {
+    navigateTo("/maintenance");
+  }
 }
