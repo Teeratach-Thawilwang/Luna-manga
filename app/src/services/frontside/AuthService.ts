@@ -41,7 +41,7 @@ class AuthService {
   public async getToken(): Promise<TokenResponse> {
     //console.log("\tIn AuthService.getToken");
     const params: TokenParams = {
-      client_id: import.meta.env.VITE_CLIENT_ID,
+      client_id: import.meta.env.VITE_FRONTSIDE_CLIENT_ID,
     };
 
     return await AuthApi.token(params)
@@ -64,7 +64,7 @@ class AuthService {
 
   public async refreshToken(): Promise<RefreshTokenResponse> {
     const params: RefreshTokenParams = {
-      client_id: import.meta.env.VITE_CLIENT_ID,
+      client_id: import.meta.env.VITE_FRONTSIDE_CLIENT_ID,
       refresh_token: this.getRefreshToken(),
     };
 
@@ -88,7 +88,7 @@ class AuthService {
 
   public sessionToken(email: string, password: string): void {
     const params: SessionTokenParams = {
-      client_id: import.meta.env.VITE_CLIENT_ID,
+      client_id: import.meta.env.VITE_FRONTSIDE_CLIENT_ID,
       email: email,
       password: password,
     };

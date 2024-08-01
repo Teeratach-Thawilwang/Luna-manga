@@ -112,7 +112,7 @@ function sessionHandle(params: SessionTokenParams): { shouldSuccess: boolean; re
   const unVerifiedCustomerEmail = "customer_unverified@email.com";
   const unVerifiedCustomerPassword = "Customer123456";
 
-  if (params.client_id != import.meta.env.VITE_CLIENT_ID) {
+  if (params.client_id != import.meta.env.VITE_FRONTSIDE_CLIENT_ID) {
     return {
       shouldSuccess: false,
       response: {

@@ -55,7 +55,7 @@ function sessionHandle(params: SessionTokenParams): { shouldSuccess: boolean; re
   const normalCustomerEmail = "admin@email.com";
   const normalCustomerPassword = "Admin123456";
 
-  if (params.client_id != import.meta.env.VITE_CLIENT_ID) {
+  if (params.client_id != import.meta.env.VITE_BACKOFFICE_CLIENT_ID) {
     return {
       shouldSuccess: false,
       response: {

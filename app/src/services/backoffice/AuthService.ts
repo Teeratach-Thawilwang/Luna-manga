@@ -31,7 +31,7 @@ class AuthService {
 
   public sessionToken(email: string, password: string): void {
     const params: SessionTokenParams = {
-      client_id: import.meta.env.VITE_CLIENT_ID,
+      client_id: import.meta.env.VITE_BACKOFFICE_CLIENT_ID,
       email: email,
       password: password,
     };
@@ -63,7 +63,7 @@ class AuthService {
 
   public async refreshToken(): Promise<RefreshTokenResponse> {
     const params: RefreshTokenParams = {
-      client_id: import.meta.env.VITE_CLIENT_ID,
+      client_id: import.meta.env.VITE_BACKOFFICE_CLIENT_ID,
       refresh_token: this.getRefreshToken(),
     };
 
