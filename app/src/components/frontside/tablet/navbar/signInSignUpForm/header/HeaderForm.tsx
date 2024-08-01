@@ -3,11 +3,10 @@
 import styled from "styled-components";
 
 import ForgotPasswordHeaderForm from "@components/frontside/tablet/navbar/signInSignUpForm/header/ForgotPasswordHeaderForm";
+import HeaderFormSelector from "@components/frontside/tablet/navbar/signInSignUpForm/header/HeaderFormSelector";
 import { SignInSignUpFormStateEnum } from "@enums/frontside/SignInSignUpFormStateEnum";
 import SignInSignUpService from "@services/frontside/SignInSignUpService";
 import { box } from "@utils/Themes";
-
-import HeaderFormSelector from "./HeaderFormSelector";
 
 export default React.memo(function HeaderForm() {
   const selector = SignInSignUpService.getter<SignInSignUpFormStateEnum>("selector");

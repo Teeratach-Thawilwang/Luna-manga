@@ -14,11 +14,10 @@ import {
 import { PaginationInterface } from "@interfaces/frontside/PaginationInterface";
 import BookmarkApi from "@repositories/frontside/BookmarkApi";
 import AuthService from "@services/frontside/AuthService";
+import StoryService from "@src/services/frontside/StoryService";
 import store, { useAppSelector } from "@store/Store";
 import { deleteById, pushStory, update } from "@store/slices/frontside/BookmarkSlice";
 import { navigateTo } from "@utils/Helpers";
-
-import StoryService from "./StoryService";
 
 class BookmarkService {
   public clearState() {
