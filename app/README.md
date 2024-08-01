@@ -26,6 +26,7 @@
     npm install react-toastify
     npm install slate slate-react slate-history
     npm install polished
+    npm install uuid @types/uuid
 ```
 
 #### 3. Install Dev tool on browser

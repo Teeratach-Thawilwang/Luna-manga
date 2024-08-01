@@ -1,10 +1,13 @@
+import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-import Middleware from "@middlewares/Middleware";
-import Maintenance from "@pages/Maintenance";
-import NotFound404 from "@pages/NotFound404";
 import backoffice from "@routes/Backoffice";
+import FallBack from "@routes/FallBack";
 import frontside from "@routes/Frontside";
+
+const Middleware = lazy(() => import("@middlewares/Middleware"));
+const Maintenance = lazy(() => import("@pages/Maintenance"));
+const NotFound404 = lazy(() => import("@pages/NotFound404"));
 
 const router = createBrowserRouter([
   ...frontside,
@@ -13,7 +16,9 @@ const router = createBrowserRouter([
     path: "*",
     element: (
       <Middleware middleware={[]}>
-        <NotFound404 />
+        <Suspense fallback={<FallBack />}>
+          <NotFound404 />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -21,7 +26,9 @@ const router = createBrowserRouter([
     path: "maintenance",
     element: (
       <Middleware middleware={[]}>
-        <Maintenance />
+        <Suspense fallback={<FallBack />}>
+          <Maintenance />
+        </Suspense>
       </Middleware>
     ),
   },

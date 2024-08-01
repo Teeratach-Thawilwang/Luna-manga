@@ -1,5 +1,5 @@
 ﻿import { GetPermissionListParams, GetPermissionListResponse } from "@interfaces/backoffice/PermissionInterface";
-import PermissionMockApi from "@mocks/backoffice/PermissionMockApi";
+// import PermissionMockApi from "@mocks/backoffice/PermissionMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;
@@ -7,8 +7,17 @@ type ReturnType<T> = Promise<T>;
 class PermissionApi {
   private baseUrl = import.meta.env.VITE_BACKOFFICE_API_URL;
 
-  public async index(params: GetPermissionListParams): ReturnType<GetPermissionListResponse> {
+  private async getMockApi() {
     if (import.meta.env.VITE_IS_MOCK_DATA === "true") {
+      const module = await import("@mocks/backoffice/PermissionMockApi");
+      return module.default;
+    }
+    return null;
+  }
+
+  public async index(params: GetPermissionListParams): ReturnType<GetPermissionListResponse> {
+    const PermissionMockApi = await this.getMockApi();
+    if (PermissionMockApi) {
       return PermissionMockApi.index(params, true);
     }
     return ApiClient.get<GetPermissionListParams, GetPermissionListResponse>(`${this.baseUrl}/permissions`, params);

@@ -1,4 +1,4 @@
-﻿import { faker } from "@faker-js/faker";
+﻿import { v4 as uuidv4 } from "uuid";
 
 import { Area } from "react-easy-crop";
 
@@ -43,7 +43,7 @@ export async function cropImage(imageUrl: string, croppedAreaPixels: Area, type:
 }
 
 export function createFileObjectFromBlob(blob: Blob, fileName: string): File {
-  let name = `${faker.string.uuid()}.png`;
+  let name = `${uuidv4()}.png`;
   if (fileName != undefined && fileName == null) {
     name = fileName;
   }

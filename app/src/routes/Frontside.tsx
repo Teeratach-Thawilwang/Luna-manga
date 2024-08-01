@@ -1,27 +1,33 @@
-import Middleware from "@middlewares/Middleware";
+import { Suspense, lazy } from "react";
+
 import AuthMiddleware from "@middlewares/frontside/AuthMiddleware";
 import GuestMiddleware from "@middlewares/frontside/GuestMiddleware";
 import TokenMiddleware from "@middlewares/frontside/TokenMiddleware";
-import Bookmark from "@pages/frontside/Bookmark";
-import Category from "@pages/frontside/Category";
-import ChapterDetail from "@pages/frontside/ChapterDetail";
-import ConfirmEmail from "@pages/frontside/ConfirmEmail";
-import EditProfile from "@pages/frontside/EditProfile";
-import Home from "@pages/frontside/Home";
-import Profile from "@pages/frontside/Profile";
-import RegisterSuccessful from "@pages/frontside/RegisterSuccessful";
-import ResetPassword from "@pages/frontside/ResetPassword";
-import ResetPasswordEmailSent from "@pages/frontside/ResetPasswordEmailSent";
-import ResetPasswordSuccessful from "@pages/frontside/ResetPasswordSuccessful";
-import SomethingWentWrong from "@pages/frontside/SomethingWentWrong";
-import StoryDetail from "@pages/frontside/StoryDetail";
+import FallBack from "@routes/FallBack";
+
+const Middleware = lazy(() => import("@middlewares/Middleware"));
+const Bookmark = lazy(() => import("@pages/frontside/Bookmark"));
+const Category = lazy(() => import("@pages/frontside/Category"));
+const ChapterDetail = lazy(() => import("@pages/frontside/ChapterDetail"));
+const ConfirmEmail = lazy(() => import("@pages/frontside/ConfirmEmail"));
+const EditProfile = lazy(() => import("@pages/frontside/EditProfile"));
+const Home = lazy(() => import("@pages/frontside/Home"));
+const Profile = lazy(() => import("@pages/frontside/Profile"));
+const RegisterSuccessful = lazy(() => import("@pages/frontside/RegisterSuccessful"));
+const ResetPassword = lazy(() => import("@pages/frontside/ResetPassword"));
+const ResetPasswordEmailSent = lazy(() => import("@pages/frontside/ResetPasswordEmailSent"));
+const ResetPasswordSuccessful = lazy(() => import("@pages/frontside/ResetPasswordSuccessful"));
+const SomethingWentWrong = lazy(() => import("@pages/frontside/SomethingWentWrong"));
+const StoryDetail = lazy(() => import("@pages/frontside/StoryDetail"));
 
 const frontside = [
   {
     path: "/",
     element: (
       <Middleware middleware={[TokenMiddleware]}>
-        <Home />
+        <Suspense fallback={<FallBack />}>
+          <Home />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -29,7 +35,9 @@ const frontside = [
     path: "/story/:slug",
     element: (
       <Middleware middleware={[TokenMiddleware]}>
-        <StoryDetail />
+        <Suspense fallback={<FallBack />}>
+          <StoryDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -37,7 +45,9 @@ const frontside = [
     path: "/story/:slug/:chapterNumber",
     element: (
       <Middleware middleware={[TokenMiddleware]}>
-        <ChapterDetail />
+        <Suspense fallback={<FallBack />}>
+          <ChapterDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -45,7 +55,9 @@ const frontside = [
     path: "/category",
     element: (
       <Middleware middleware={[TokenMiddleware]}>
-        <Category />
+        <Suspense fallback={<FallBack />}>
+          <Category />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -53,7 +65,9 @@ const frontside = [
     path: "/bookmark",
     element: (
       <Middleware middleware={[TokenMiddleware, AuthMiddleware]}>
-        <Bookmark />
+        <Suspense fallback={<FallBack />}>
+          <Bookmark />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -61,7 +75,9 @@ const frontside = [
     path: "/profile/:customerId",
     element: (
       <Middleware middleware={[TokenMiddleware]}>
-        <Profile />
+        <Suspense fallback={<FallBack />}>
+          <Profile />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -69,7 +85,9 @@ const frontside = [
     path: "/edit-profile",
     element: (
       <Middleware middleware={[TokenMiddleware, AuthMiddleware]}>
-        <EditProfile />
+        <Suspense fallback={<FallBack />}>
+          <EditProfile />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -77,7 +95,9 @@ const frontside = [
     path: "/confirm-email",
     element: (
       <Middleware middleware={[TokenMiddleware, GuestMiddleware]}>
-        <ConfirmEmail />
+        <Suspense fallback={<FallBack />}>
+          <ConfirmEmail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -85,7 +105,9 @@ const frontside = [
     path: "/reset-password",
     element: (
       <Middleware middleware={[TokenMiddleware, GuestMiddleware]}>
-        <ResetPassword />
+        <Suspense fallback={<FallBack />}>
+          <ResetPassword />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -93,7 +115,9 @@ const frontside = [
     path: "/register-successful",
     element: (
       <Middleware middleware={[TokenMiddleware, GuestMiddleware]}>
-        <RegisterSuccessful />
+        <Suspense fallback={<FallBack />}>
+          <RegisterSuccessful />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -101,7 +125,9 @@ const frontside = [
     path: "/reset-password-processing",
     element: (
       <Middleware middleware={[TokenMiddleware, GuestMiddleware]}>
-        <ResetPasswordEmailSent />
+        <Suspense fallback={<FallBack />}>
+          <ResetPasswordEmailSent />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -109,7 +135,9 @@ const frontside = [
     path: "/reset-password-successful",
     element: (
       <Middleware middleware={[TokenMiddleware, GuestMiddleware]}>
-        <ResetPasswordSuccessful />
+        <Suspense fallback={<FallBack />}>
+          <ResetPasswordSuccessful />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -117,7 +145,9 @@ const frontside = [
     path: "/something-went-wrong",
     element: (
       <Middleware middleware={[]}>
-        <SomethingWentWrong />
+        <Suspense fallback={<FallBack />}>
+          <SomethingWentWrong />
+        </Suspense>
       </Middleware>
     ),
   },

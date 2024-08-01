@@ -1,5 +1,5 @@
 ﻿import { WidgetIndexParams, WidgetIndexResponse, WidgetsBannersParams, WidgetsBannersResponse } from "@interfaces/frontside/WidgetInterface";
-import WidgetMockApi from "@mocks/frontside/WidgetMockApi";
+// import WidgetMockApi from "@mocks/frontside/WidgetMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;
@@ -7,15 +7,25 @@ type ReturnType<T> = Promise<T>;
 class WidgetApi {
   private baseUrl = import.meta.env.VITE_FRONT_SIDE_API_URL;
 
-  public async index(params: WidgetIndexParams): ReturnType<WidgetIndexResponse> {
+  private async getMockApi() {
     if (import.meta.env.VITE_IS_MOCK_DATA === "true") {
+      const module = await import("@mocks/frontside/WidgetMockApi");
+      return module.default;
+    }
+    return null;
+  }
+
+  public async index(params: WidgetIndexParams): ReturnType<WidgetIndexResponse> {
+    const WidgetMockApi = await this.getMockApi();
+    if (WidgetMockApi) {
       return WidgetMockApi.index(params, true);
     }
     return ApiClient.get<WidgetIndexParams, WidgetIndexResponse>(`${this.baseUrl}/widgets`, params);
   }
 
   public async widgetBanners(params: WidgetsBannersParams): ReturnType<WidgetsBannersResponse> {
-    if (import.meta.env.VITE_IS_MOCK_DATA === "true") {
+    const WidgetMockApi = await this.getMockApi();
+    if (WidgetMockApi) {
       return WidgetMockApi.widgetBanners(params, true);
     }
 
