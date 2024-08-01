@@ -16,7 +16,7 @@ import { addEventScroll, getResponsive } from "@utils/Hooks";
 
 export default React.memo(function Home() {
   // console.log("In Home");
-  document.title = "Luna: Home";
+  document.title = "Luna";
   const responsive = getResponsive();
   const footerRef = useRef<HTMLDivElement | null>(null);
 
