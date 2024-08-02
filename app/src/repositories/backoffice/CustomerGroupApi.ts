@@ -10,7 +10,6 @@
   UpdateCustomerGroupParams,
   UpdateCustomerGroupResponse,
 } from "@interfaces/backoffice/CustomerGroupInterface";
-// import CustomerGroupMockApi from "@mocks/backoffice/CustomerGroupMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

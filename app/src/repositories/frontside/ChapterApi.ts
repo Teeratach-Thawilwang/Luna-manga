@@ -1,5 +1,4 @@
 ﻿import { ChapterReactionParams, ChapterReactionResponse, ChapterShowParams, ChapterShowResponse } from "@interfaces/frontside/ChapterInterface";
-// import ChapterMockApi from "@mocks/frontside/ChapterMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

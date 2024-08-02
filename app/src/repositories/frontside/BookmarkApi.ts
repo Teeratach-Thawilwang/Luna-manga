@@ -6,7 +6,6 @@
   BookmarkIndexParams,
   BookmarkIndexResponse,
 } from "@interfaces/frontside/BookmarkInterface";
-// import BookmarkMockApi from "@mocks/frontside/BookmarkMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

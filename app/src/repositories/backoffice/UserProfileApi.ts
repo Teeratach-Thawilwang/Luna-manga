@@ -4,7 +4,6 @@
   UserProfileParams,
   UserProfileResponse,
 } from "@interfaces/backoffice/UserProfileInterface";
-// import UserProfileMockApi from "@mocks/backoffice/UserProfileMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

@@ -10,7 +10,6 @@
   UpdateBannerParams,
   UpdateBannerResponse,
 } from "@interfaces/backoffice/BannerInterface";
-// import BannerMockApi from "@mocks/backoffice/BannerMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

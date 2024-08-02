@@ -1,5 +1,4 @@
 ﻿import { StoryReactionParams, StoryReactionResponse, StoryShowParams, StoryShowResponse } from "@interfaces/frontside/StoryInterface";
-// import StoryMockApi from "@mocks/frontside/StoryMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

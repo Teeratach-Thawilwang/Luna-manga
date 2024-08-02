@@ -10,7 +10,6 @@
   UpdateCategoryParams,
   UpdateCategoryResponse,
 } from "@interfaces/backoffice/CategoryInterface";
-// import CategoryMockApi from "@mocks/backoffice/CategoryMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

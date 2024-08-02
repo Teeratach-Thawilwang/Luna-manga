@@ -1,5 +1,4 @@
 ﻿import { StoryChapterParams, StoryChapterResponse } from "@interfaces/frontside/StoryChapterInterface";
-// import StoryChapterMockApi from "@mocks/frontside/StoryChapterMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

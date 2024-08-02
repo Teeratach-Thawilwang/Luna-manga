@@ -6,7 +6,6 @@
   SessionTokenParams,
   SessionTokenResponse,
 } from "@interfaces/backoffice/AuthInterface";
-// import AuthMockApi from "@mocks/backoffice/AuthMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

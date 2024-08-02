@@ -1,5 +1,4 @@
 ﻿import { FileUploadParams, FileUploadResponse } from "@interfaces/backoffice/FileInterface";
-// import FileMockApi from "@mocks/backoffice/FileMockApi";
 import ApiClient from "@repositories/ApiClient";
 import { toFormData } from "@utils/Helpers";
 

@@ -1,5 +1,4 @@
 ﻿import { ProfileParams, ProfileResponse } from "@interfaces/frontside/ProfileInterface";
-// import ProfileMockApi from "@mocks/frontside/ProfileMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

@@ -1,5 +1,4 @@
 ﻿import { CategoryStoryIndexParams, CategoryStoryIndexResponse } from "@interfaces/frontside/CategoryStoryInterface";
-// import CategoryStoryMockApi from "@mocks/frontside/CategoryStoryMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

@@ -1,5 +1,4 @@
 ﻿import { WidgetIndexParams, WidgetIndexResponse, WidgetsBannersParams, WidgetsBannersResponse } from "@interfaces/frontside/WidgetInterface";
-// import WidgetMockApi from "@mocks/frontside/WidgetMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

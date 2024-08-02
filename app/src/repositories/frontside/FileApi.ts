@@ -1,5 +1,4 @@
 ﻿import { FileUploadParams, FileUploadResponse } from "@interfaces/frontside/FileInterface";
-// import FileMockApi from "@mocks/frontside/FileMockApi";
 import ApiClient from "@repositories/ApiClient";
 import { toFormData } from "@utils/Helpers";
 

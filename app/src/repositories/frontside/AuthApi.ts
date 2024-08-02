@@ -16,7 +16,6 @@
   TokenParams,
   TokenResponse,
 } from "@interfaces/frontside/AuthInterface";
-// import AuthMockApi from "@mocks/frontside/AuthMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

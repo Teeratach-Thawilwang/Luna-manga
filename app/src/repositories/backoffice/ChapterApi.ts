@@ -10,7 +10,6 @@
   UpdateChapterParams,
   UpdateChapterResponse,
 } from "@interfaces/backoffice/ChapterInterface";
-// import ChapterMockApi from "@mocks/backoffice/ChapterMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

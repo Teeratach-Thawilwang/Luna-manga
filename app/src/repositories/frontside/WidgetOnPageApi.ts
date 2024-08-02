@@ -1,5 +1,4 @@
 ﻿import { WidgetOnPageParams, WidgetOnPageResponse } from "@interfaces/frontside/WidgetOnPageInterface";
-// import WidgetOnPageMockApi from "@mocks/frontside/WidgetOnPageMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

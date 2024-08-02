@@ -10,7 +10,6 @@
   UpdateStoryParams,
   UpdateStoryResponse,
 } from "@interfaces/backoffice/StoryInterface";
-// import StoryMockApi from "@mocks/backoffice/StoryMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

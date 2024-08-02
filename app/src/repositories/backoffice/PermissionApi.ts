@@ -1,5 +1,4 @@
 ﻿import { GetPermissionListParams, GetPermissionListResponse } from "@interfaces/backoffice/PermissionInterface";
-// import PermissionMockApi from "@mocks/backoffice/PermissionMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

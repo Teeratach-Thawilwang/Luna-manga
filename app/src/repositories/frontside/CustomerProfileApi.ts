@@ -4,7 +4,6 @@
   UpdateCustomerProfileParams,
   UpdateCustomerProfileResponse,
 } from "@interfaces/frontside/CustomerProfileInterface";
-// import CustomerProfileMockApi from "@mocks/frontside/CustomerProfileMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

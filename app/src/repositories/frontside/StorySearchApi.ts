@@ -1,5 +1,4 @@
 ﻿import { StorySearchParams, StorySearchResponse } from "@interfaces/frontside/StorySearchInterface";
-// import StorySearchMockApi from "@mocks/frontside/StorySearchMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

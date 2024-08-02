@@ -4,7 +4,6 @@
   UpdateWidgetSequenceParams,
   UpdateWidgetSequenceResponse,
 } from "@interfaces/backoffice/WidgetInterface";
-// import WidgetSequenceMockApi from "@mocks/backoffice/WidgetSequenceMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

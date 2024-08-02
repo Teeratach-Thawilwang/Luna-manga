@@ -6,7 +6,6 @@
   UpdateCustomerParams,
   UpdateCustomerResponse,
 } from "@interfaces/backoffice/CustomerInterface";
-// import CustomerMockApi from "@mocks/backoffice/CustomerMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

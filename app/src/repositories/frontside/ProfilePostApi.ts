@@ -8,7 +8,6 @@
   ProfilePostReactionResponse,
   ProfilePostResponse,
 } from "@interfaces/frontside/ProfilePostInterface";
-// import ProfilePostMockApi from "@mocks/frontside/ProfilePostMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

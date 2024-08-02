@@ -1,5 +1,4 @@
 ﻿import { CustomerReportParams, CustomerReportResponse } from "@interfaces/frontside/CustomerReportInterface";
-// import CustomerReportMockApi from "@mocks/frontside/CustomerReportMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;

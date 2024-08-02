@@ -1,5 +1,4 @@
 ﻿import { GetDashboardParams, GetDashboardResponse } from "@interfaces/backoffice/DashboardInterface";
-// import DashboardMockApi from "@mocks/backoffice/DashboardMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;
