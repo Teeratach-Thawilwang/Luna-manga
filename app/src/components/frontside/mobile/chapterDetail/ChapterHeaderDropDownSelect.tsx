@@ -17,6 +17,7 @@ export default function ChapterHeaderDropDownSelect() {
   const dropDownCurrentRef = useRef<HTMLDivElement>(null);
   const [isModalShow, setIsModalShow] = useState<boolean>(false);
   const chapterList = ChapterService.getChapterList();
+  const currentChapter = chapterList.filter((chapter) => chapter.chapter_number == Number(chapterNumber))[0];
   const optionList = useMemo(() => createOption(chapterList, Number(chapterNumber), dropDownCurrentRef, onClickHandle), []);
 
   function onClickHandle(i: number) {
@@ -38,7 +39,7 @@ export default function ChapterHeaderDropDownSelect() {
     <>
       <Box>
         <Selector ref={dropDownRef} onClick={() => setIsModalShow((prev) => !prev)}>
-          ตอนที่ {chapterNumber}
+          {currentChapter.name}
           <IconBox>
             <DropdownIcon />
           </IconBox>
