@@ -10,9 +10,9 @@ export default function BannerTypeStoryWindow(banner: BannerInterface) {
   const imageWindow1 = banner.images.filter((image) => image.collection_name == CollectionEnum.BANNER_STORY_WINDOW_1)[0];
   const imageWindow2 = banner.images.filter((image) => image.collection_name == CollectionEnum.BANNER_STORY_WINDOW_2)[0];
   const imageWindow3 = banner.images.filter((image) => image.collection_name == CollectionEnum.BANNER_STORY_WINDOW_3)[0];
-
+  const url = banner.link.replace("https://", "").replace("http://", "");
   return (
-    <Box to={banner.link.replace("https://", "").replace("http://", "")}>
+    <Box to={url}>
       <Left>
         <ImageAdvertisement src={imageWindow1.mobile} aspectRatio={1} borderRadius="10px" />
       </Left>

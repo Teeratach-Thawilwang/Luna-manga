@@ -7,8 +7,9 @@ import { BannerInterface } from "@interfaces/frontside/BannerInterface";
 import { box, color, font } from "@utils/Themes";
 
 export default function BannerTypeStory(banner: BannerInterface) {
+  const url = banner.link.replace("https://", "").replace("http://", "");
   return (
-    <Box to={banner.link.replace("https://", "").replace("http://", "")}>
+    <Box to={url}>
       <Container>
         <ImageStory src={banner.images[0].desktop} />
         <BottomContainer>
