@@ -48,7 +48,7 @@ export default function Category() {
         return category.name == "ทั้งหมด" && category.type == CategoryTypeEnum.MANGA;
       });
       const categorySelectedId = categoryAll.length == 0 ? categories[0].id : categoryAll[0].id;
-      CategoryStoryService.loadIndex(categorySelectedId);
+      CategoryStoryService.loadIndex(categorySelectedId, 1, 15, "name");
     }
   }, [isCategoryLoaded]);
 

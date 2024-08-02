@@ -79,7 +79,7 @@ function createPagination(
 ) {
   function navigatePagination(page: number) {
     if (categorySelectedId != null) {
-      CategoryStoryService.loadIndex(categorySelectedId, page);
+      CategoryStoryService.loadIndex(categorySelectedId, page, 15, "name");
       contentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }

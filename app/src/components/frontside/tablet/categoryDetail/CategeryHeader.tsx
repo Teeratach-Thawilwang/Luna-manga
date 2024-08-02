@@ -20,7 +20,7 @@ export default function CategeryHeader({ contentRef }: { contentRef: MutableRefO
     if (categoryType != type && categoriesByType.length > 0) {
       CategoryService.update({ type: type });
       const categoriesByType = CategoryService.filterCategoryByType(categoryAllType, type);
-      CategoryStoryService.loadIndex(categoriesByType[0].id);
+      CategoryStoryService.loadIndex(categoriesByType[0].id, 1, 15, "name");
     }
   }
 
@@ -140,7 +140,7 @@ function createSlideCategory(categories: CategoryInterface[], categorySelectedId
       if (isActive) {
         return;
       }
-      CategoryStoryService.loadIndex(category.id);
+      CategoryStoryService.loadIndex(category.id, 1, 15, "name");
     }
 
     return (
