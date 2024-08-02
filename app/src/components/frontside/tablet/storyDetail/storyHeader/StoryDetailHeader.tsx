@@ -73,8 +73,7 @@ const Container = styled.div`
 const TitleBox = styled.div`
   /* border: 1px solid red; */
   width: 100%;
-  height: 50px;
-  margin-top: ${(props) => box(props).space.sm};
+  margin-top: ${(props) => box(props).space.md};
 
   position: relative;
 `;
@@ -82,15 +81,14 @@ const TitleBox = styled.div`
 const Title = styled.div`
   /* border: 1px solid red; */
   height: 100%;
+  padding: 0 ${(props) => box(props).space.sm};
 
   color: ${(props) => color(props).onSurface};
 
   font-size: ${(props) => font(props).size.lg};
   font-weight: ${(props) => font(props).weight.bold};
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  word-wrap: break-word;
+  text-align: center;
 `;
 
 const BookmarkButtonWrap = styled.div`
