@@ -3,11 +3,16 @@
 import SearchNotFound from "@components/frontside/mobile/navbar/searchBox/SearchNotFound";
 import Searching from "@components/frontside/mobile/navbar/searchBox/Searching";
 import StorySearchItem from "@components/frontside/mobile/navbar/searchBox/StorySearchItem";
+import { NavigationModelEnum } from "@enums/frontside/NavigationModelEnum";
 import { StorySearchInterface } from "@interfaces/frontside/StorySearchInterface";
 import StorySearchService from "@services/frontside/StorySearchService";
 import { box } from "@utils/Themes";
 
-export default function SearchItems() {
+interface SearchItemsInterface {
+  setActive: (value: NavigationModelEnum) => void;
+}
+
+export default function SearchItems({ setActive }: SearchItemsInterface) {
   const isLoading = StorySearchService.getStorySearchIsLoading();
   const storySearchItems = StorySearchService.getStorySearch();
   const isModalShow = StorySearchService.getSearchQuery() != "";
@@ -24,7 +29,7 @@ export default function SearchItems() {
     );
   }
 
-  const element = createStorySearchItems(storySearchItems);
+  const element = createStorySearchItems(storySearchItems, setActive);
   return <Box $isShow={isModalShow}>{element}</Box>;
 }
 
@@ -37,8 +42,8 @@ const Box = styled.div<{ $isShow: boolean }>`
   display: ${(props) => (props.$isShow ? "block" : "none")};
 `;
 
-function createStorySearchItems(stories: StorySearchInterface[]) {
+function createStorySearchItems(stories: StorySearchInterface[], setActive: (value: NavigationModelEnum) => void) {
   return stories.map((story) => {
-    return <StorySearchItem story={story} key={story.id} />;
+    return <StorySearchItem story={story} setActive={setActive} key={story.id} />;
   });
 }

@@ -6,7 +6,12 @@ import ProfileButtonItem from "@components/frontside/mobile/navbar/menu/ProfileB
 import { NavigationModelEnum } from "@enums/frontside/NavigationModelEnum";
 import { box, color } from "@utils/Themes";
 
-export default function MenuModal({ isShow, setActive }: { isShow: boolean; setActive: (value: NavigationModelEnum) => void }) {
+interface MenuModalInterface {
+  isShow: boolean;
+  setActive: (value: NavigationModelEnum) => void;
+}
+
+export default function MenuModal({ isShow, setActive }: MenuModalInterface) {
   if (!isShow) {
     return <></>;
   }

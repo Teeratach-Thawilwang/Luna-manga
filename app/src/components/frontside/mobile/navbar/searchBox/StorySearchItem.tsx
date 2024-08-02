@@ -4,13 +4,23 @@ import styled from "styled-components";
 
 import StorySeachItemType from "@components/frontside/mobile/navbar/searchBox/StorySeachItemType";
 import StorySearchItemName from "@components/frontside/mobile/navbar/searchBox/StorySearchItemName";
+import { NavigationModelEnum } from "@enums/frontside/NavigationModelEnum";
 import { StorySearchInterface } from "@interfaces/frontside/StorySearchInterface";
 import StorySearchService from "@services/frontside/StorySearchService";
 import { box, color } from "@utils/Themes";
 
-export default function StorySearchItem({ story }: { story: StorySearchInterface }) {
+interface StorySearchItemInterface {
+  story: StorySearchInterface;
+  setActive: (value: NavigationModelEnum) => void;
+}
+
+export default function StorySearchItem({ story, setActive }: StorySearchItemInterface) {
+  function onclickHandle() {
+    StorySearchService.clearState();
+    setActive(NavigationModelEnum.NONE);
+  }
   return (
-    <Box to={`/story/${story.slug}`} onClick={() => StorySearchService.clearState()}>
+    <Box to={`/story/${story.slug}`} onClick={onclickHandle}>
       <Image src={story.images[0].mobile} />
       <StorySearchItemName story={story} />
       <StorySeachItemType type={story.type} />

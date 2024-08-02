@@ -2,13 +2,19 @@
 
 import SearchBox from "@components/frontside/mobile/navbar/searchBox/SearchBox";
 import SearchItems from "@components/frontside/mobile/navbar/searchBox/SearchItems";
+import { NavigationModelEnum } from "@enums/frontside/NavigationModelEnum";
 import { box, color } from "@utils/Themes";
 
-export default function SearchModal({ isShow }: { isShow: boolean }) {
+interface SearchModalInterface {
+  isShow: boolean;
+  setActive: (value: NavigationModelEnum) => void;
+}
+
+export default function SearchModal({ isShow, setActive }: SearchModalInterface) {
   return (
     <Box $isShow={isShow}>
       <SearchBox />
-      <SearchItems />
+      <SearchItems setActive={setActive} />
     </Box>
   );
 }

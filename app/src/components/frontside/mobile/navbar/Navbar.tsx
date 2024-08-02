@@ -38,7 +38,7 @@ export default function Navbar() {
   return (
     <>
       <GoTopButton scroll={scroll} />
-      <SearchModal isShow={isSearchModelShow} />
+      <SearchModal isShow={isSearchModelShow} setActive={setActive} />
       <SignInSignUpModal isShow={isSignInSignUpModalShow} />
       <MenuModal isShow={isMenuModalShow} setActive={setActive} />
       <Box $isShow={scroll == "Up"}>
