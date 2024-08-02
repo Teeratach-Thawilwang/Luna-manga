@@ -1,4 +1,4 @@
-﻿import React, { lazy, useEffect } from "react";
+﻿import React, { useEffect } from "react";
 
 import { ThemeProvider } from "styled-components";
 
@@ -7,9 +7,8 @@ import CookieBackofficeService from "@services/backoffice/CookieService";
 import ThemeBackoficeService from "@services/backoffice/ThemeService";
 import CookieFrontSideService from "@services/frontside/CookieService";
 import ThemeFrontSideService from "@services/frontside/ThemeService";
+import GlobalStyle from "@src/GlobalStyle";
 import Themes from "@utils/Themes";
-
-const GlobalStyle = lazy(() => import("@src/GlobalStyle"));
 
 export default React.memo(function ThemeColorProvider({ children }: { children: JSX.Element }) {
   const themeService = isFrontSideUrl() ? ThemeFrontSideService : ThemeBackoficeService;

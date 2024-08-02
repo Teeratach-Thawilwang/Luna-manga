@@ -24,22 +24,4 @@ export default defineConfig({
       "@utils": path.resolve(__dirname, "./src/utils"),
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          "react-vendor": ["react", "react-dom", "react-router-dom", "react-redux", "@reduxjs/toolkit"],
-          "react-toastify": ["react-toastify"],
-          "react-beautiful-dnd": ["react-beautiful-dnd"],
-          "date-picker": ["react-datepicker"],
-          slate: ["slate", "slate-history", "slate-react"],
-          "styled-components": ["styled-components"],
-          swiper: ["swiper"],
-          axios: ["axios"],
-          "js-cookie": ["js-cookie"],
-        },
-      },
-    },
-    chunkSizeWarningLimit: 500,
-  },
 });
