@@ -17,7 +17,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function Bookmark() {
   // console.log("In Bookmark");
-  document.title = "Luna: Bookmark";
+  document.title = "Luna: บุ๊กมาร์ก";
   const responsive = getResponsive();
   const isBookmarkLoaded = BookmarkService.getIsLoaded();
   const isWidgetOnPageLoaded = WidgetOnPageService.getIsLoaded();

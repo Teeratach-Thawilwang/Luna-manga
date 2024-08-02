@@ -12,7 +12,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function RegisterSuccessful() {
   // console.log("In RegisterSuccessful");
-  document.title = "Luna: Register Successful";
+  document.title = "Luna: สมัครสมาชิกสำเร็จ";
   const responsive = getResponsive();
 
   if (responsive === ResponsiveEnum.MOBILE) {

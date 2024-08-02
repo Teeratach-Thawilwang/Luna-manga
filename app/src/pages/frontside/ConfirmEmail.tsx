@@ -13,7 +13,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function ConfirmEmail() {
   // console.log("In ConfirmEmail");
-  document.title = "Luna: Confirm Email";
+  document.title = "Luna: ยืนยันอีเมล";
   const responsive = getResponsive();
   const footerRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();

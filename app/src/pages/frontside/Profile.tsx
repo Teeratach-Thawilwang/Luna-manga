@@ -17,7 +17,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function Profile() {
   // console.log("In Home");
-  document.title = "Luna: Profile";
+  document.title = "Luna: โปรไฟล์";
   const { customerId } = useParams();
   const responsive = getResponsive();
   const isLoading = ProfileService.getIsLoading();

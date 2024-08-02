@@ -19,7 +19,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function Category() {
   // console.log("In Category");
-  document.title = "Luna: Category";
+  document.title = "Luna: หมวดหมู่";
   const responsive = getResponsive();
   const categories = CategoryService.getCategory();
   const isCategoryLoaded = CategoryService.getIsLoaded();

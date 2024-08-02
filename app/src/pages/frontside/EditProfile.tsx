@@ -16,7 +16,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function EditProfile() {
   // console.log("In EditProfile");
-  document.title = "Luna: Edit Profile";
+  document.title = "Luna: แก้ไขโปรไฟล์";
   const responsive = getResponsive();
   const profile = CustomerProfileService.getProfile();
 

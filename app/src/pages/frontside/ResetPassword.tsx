@@ -12,7 +12,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function ResetPassword() {
   // console.log("In ResetPassword");
-  document.title = "Luna: Reset Password";
+  document.title = "Luna: เปลี่ยนรหัสผ่าน";
   const responsive = getResponsive();
 
   if (responsive === ResponsiveEnum.MOBILE) {
