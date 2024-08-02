@@ -28,6 +28,7 @@ export default function Detail() {
       <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_GROUP} />
       <StoryDetailHeader />
       <StoryChapterContent />
+      <WidgetItem type={WidgetTypeEnum.STORY_LIST} />
       <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_MEDIUM} />
       <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_SMALL} />
       <WidgetItem type={WidgetTypeEnum.STORY_WINDOW} />
