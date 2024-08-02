@@ -32,6 +32,12 @@ export default function Navbar() {
   const isGroupModelShow = isSignInSignUpModalShow || isMenuModalShow;
 
   useEffect(() => {
+    return () => {
+      setScrollFreezeWhenActiveNotEmpty(NavigationModelEnum.NONE, 0, setScrollY);
+    };
+  }, []);
+
+  useEffect(() => {
     setScrollFreezeWhenActiveNotEmpty(active, scrollY, setScrollY);
   }, [active]);
 
@@ -88,22 +94,30 @@ const TabNavbar = styled.div`
   grid-template-columns: repeat(5, 1fr);
 `;
 
-function setScrollFreezeWhenActiveNotEmpty(active: string, scrollY: number, setScrollY: (val: number) => void): void {
+function setScrollFreezeWhenActiveNotEmpty(active: NavigationModelEnum, scrollY: number, setScrollY: (val: number) => void): void {
   if (active != NavigationModelEnum.NONE) {
-    setScrollY(window.scrollY);
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.width = "100%";
-    document.body.style.height = "100%";
+    setScrollFreeze(setScrollY);
   } else {
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
-    document.body.style.position = "";
-    document.body.style.width = "";
-    document.body.style.height = "";
-
-    window.scroll({ top: scrollY + 1, left: 0, behavior: "instant" });
-    window.scroll({ top: scrollY, left: 0, behavior: "smooth" });
+    unSetScrollFreeze(scrollY);
   }
+}
+
+function setScrollFreeze(setScrollY: (val: number) => void) {
+  setScrollY(window.scrollY);
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+  document.body.style.position = "fixed";
+  document.body.style.width = "100%";
+  document.body.style.height = "100%";
+}
+
+function unSetScrollFreeze(scrollY: number) {
+  document.documentElement.style.overflow = "";
+  document.body.style.overflow = "";
+  document.body.style.position = "";
+  document.body.style.width = "";
+  document.body.style.height = "";
+
+  window.scroll({ top: scrollY + 1, left: 0, behavior: "instant" });
+  window.scroll({ top: scrollY, left: 0, behavior: "smooth" });
 }
