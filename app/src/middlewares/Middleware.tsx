@@ -45,7 +45,7 @@ async function defaultMiddleware() {
 }
 
 function maintenanceMiddleware() {
-  if (import.meta.env.VITE_MAINTENANCE_MODE == "True") {
+  if (import.meta.env.VITE_MAINTENANCE_MODE == "true") {
     navigateTo("/maintenance");
   }
 }
