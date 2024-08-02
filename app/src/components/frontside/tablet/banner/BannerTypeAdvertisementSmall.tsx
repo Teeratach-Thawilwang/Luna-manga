@@ -5,7 +5,7 @@ import { BannerInterface } from "@interfaces/frontside/BannerInterface";
 
 export default function BannerTypeAdvertisementSmall(banner: BannerInterface) {
   return (
-    <Box onClick={() => window.open("//" + banner.link, "_blank")}>
+    <Box onClick={() => window.open(banner.link, "_blank")}>
       <ImageAdvertisement src={banner.images[0].desktop} aspectRatio={490 / 150} />
     </Box>
   );

@@ -5,7 +5,7 @@ import { BannerInterface } from "@interfaces/frontside/BannerInterface";
 
 export default function BannerTypeAdvertisementMedium(banner: BannerInterface) {
   return (
-    <Box onClick={() => window.open("//" + banner.link, "_blank")}>
+    <Box onClick={() => window.open(banner.link, "_blank")}>
       <ImageAdvertisement src={banner.images[0].mobile} aspectRatio={720 / 180} />
     </Box>
   );

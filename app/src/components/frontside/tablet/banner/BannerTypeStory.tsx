@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -7,13 +7,8 @@ import { BannerInterface } from "@interfaces/frontside/BannerInterface";
 import { box, color, font } from "@utils/Themes";
 
 export default function BannerTypeStory(banner: BannerInterface) {
-  const navigate = useNavigate();
-
-  function onClickHandle() {
-    navigate(banner.link.replace("https://", "").replace("http://", ""));
-  }
   return (
-    <Box onClick={onClickHandle}>
+    <Box to={banner.link.replace("https://", "").replace("http://", "")}>
       <Container>
         <ImageStory src={banner.images[0].desktop} />
         <BottomContainer>
@@ -24,10 +19,12 @@ export default function BannerTypeStory(banner: BannerInterface) {
   );
 }
 
-const Box = styled.div`
+const Box = styled(Link)`
   /* border: 1px solid yellow; */
   box-sizing: border-box;
   padding: 0 5px;
+  text-decoration: none;
+  display: block;
 
   cursor: pointer;
 `;

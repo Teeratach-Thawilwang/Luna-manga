@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -7,13 +7,12 @@ import { CollectionEnum } from "@enums/frontside/CollectionEnum";
 import { BannerInterface } from "@interfaces/frontside/BannerInterface";
 
 export default function BannerTypeStoryWindow(banner: BannerInterface) {
-  const navigate = useNavigate();
   const imageWindow1 = banner.images.filter((image) => image.collection_name == CollectionEnum.BANNER_STORY_WINDOW_1)[0];
   const imageWindow2 = banner.images.filter((image) => image.collection_name == CollectionEnum.BANNER_STORY_WINDOW_2)[0];
   const imageWindow3 = banner.images.filter((image) => image.collection_name == CollectionEnum.BANNER_STORY_WINDOW_3)[0];
 
   return (
-    <Box onClick={() => navigate(banner.link.replace("https://", "").replace("http://", ""))}>
+    <Box to={banner.link.replace("https://", "").replace("http://", "")}>
       <Left>
         <ImageAdvertisement src={imageWindow1.mobile} aspectRatio={1} borderRadius="10px" />
       </Left>
@@ -25,10 +24,11 @@ export default function BannerTypeStoryWindow(banner: BannerInterface) {
   );
 }
 
-const Box = styled.div`
+const Box = styled(Link)`
   /* border: 1px solid yellow; */
   box-sizing: border-box;
   width: 100%;
+  text-decoration: none;
 
   display: flex;
   justify-content: space-between;
