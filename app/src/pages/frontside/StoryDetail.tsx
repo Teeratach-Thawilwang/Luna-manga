@@ -48,7 +48,7 @@ export default React.memo(function StoryDetail() {
     if (isStoryChapterLoaded || story?.slug != slug!) {
       StoryChapterService.loadStoryChapter(slug!, page);
     }
-  }, [page]);
+  }, [story, page]);
 
   useEffect(() => {
     document.title = story?.name ?? "Luna";
