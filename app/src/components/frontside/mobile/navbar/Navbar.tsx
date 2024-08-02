@@ -33,7 +33,7 @@ export default function Navbar() {
 
   useEffect(() => {
     return () => {
-      setScrollFreezeWhenActiveNotEmpty(NavigationModelEnum.NONE, 0, setScrollY);
+      unsetScrollFreeze(scrollY);
     };
   }, []);
 
@@ -98,7 +98,7 @@ function setScrollFreezeWhenActiveNotEmpty(active: NavigationModelEnum, scrollY:
   if (active != NavigationModelEnum.NONE) {
     setScrollFreeze(setScrollY);
   } else {
-    unSetScrollFreeze(scrollY);
+    unsetScrollFreeze(scrollY);
   }
 }
 
@@ -111,7 +111,7 @@ function setScrollFreeze(setScrollY: (val: number) => void) {
   document.body.style.height = "100%";
 }
 
-function unSetScrollFreeze(scrollY: number) {
+function unsetScrollFreeze(scrollY: number) {
   document.documentElement.style.overflow = "";
   document.body.style.overflow = "";
   document.body.style.position = "";
