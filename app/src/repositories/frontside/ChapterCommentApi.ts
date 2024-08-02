@@ -8,7 +8,6 @@
   DeleteCommentParams,
   DeleteCommentResponse,
 } from "@interfaces/frontside/ChapterCommentInterface";
-// import ChapterCommentMockApi from "@mocks/frontside/ChapterCommentMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;
@@ -17,8 +16,7 @@ class ChapterCommentApi {
   private baseUrl = import.meta.env.VITE_FRONT_SIDE_API_URL;
 
   private async getMockApi() {
-    const ChapterCommentMockApi = await this.getMockApi();
-    if (ChapterCommentMockApi) {
+    if (import.meta.env.VITE_IS_MOCK_DATA === "true") {
       const module = await import("@mocks/frontside/ChapterCommentMockApi");
       return module.default;
     }

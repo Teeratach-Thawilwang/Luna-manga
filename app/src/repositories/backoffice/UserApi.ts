@@ -8,7 +8,6 @@
   UpdateUserParams,
   UpdateUserResponse,
 } from "@interfaces/backoffice/UserInterface";
-// import UserMockApi from "@mocks/backoffice/UserMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;
@@ -17,8 +16,7 @@ class UserApi {
   private baseUrl = import.meta.env.VITE_BACKOFFICE_API_URL;
 
   private async getMockApi() {
-    const UserMockApi = await this.getMockApi();
-    if (UserMockApi) {
+    if (import.meta.env.VITE_IS_MOCK_DATA === "true") {
       const module = await import("@mocks/backoffice/UserMockApi");
       return module.default;
     }

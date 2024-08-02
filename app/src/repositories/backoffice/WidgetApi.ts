@@ -10,7 +10,6 @@
   UpdateWidgetParams,
   UpdateWidgetResponse,
 } from "@interfaces/backoffice/WidgetInterface";
-// import WidgetMockApi from "@mocks/backoffice/WidgetMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;
@@ -19,8 +18,7 @@ class WidgetApi {
   private baseUrl = import.meta.env.VITE_BACKOFFICE_API_URL;
 
   private async getMockApi() {
-    const WidgetMockApi = await this.getMockApi();
-    if (WidgetMockApi) {
+    if (import.meta.env.VITE_IS_MOCK_DATA === "true") {
       const module = await import("@mocks/backoffice/WidgetMockApi");
       return module.default;
     }

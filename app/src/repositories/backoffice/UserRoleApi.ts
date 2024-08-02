@@ -10,7 +10,6 @@
   UpdateUserRoleParams,
   UpdateUserRoleResponse,
 } from "@interfaces/backoffice/UserRoleInterface";
-// import UserRoleMockApi from "@mocks/backoffice/UserRoleMockApi";
 import ApiClient from "@repositories/ApiClient";
 
 type ReturnType<T> = Promise<T>;
@@ -19,8 +18,7 @@ class UserRoleApi {
   private baseUrl = import.meta.env.VITE_BACKOFFICE_API_URL;
 
   private async getMockApi() {
-    const UserRoleMockApi = await this.getMockApi();
-    if (UserRoleMockApi) {
+    if (import.meta.env.VITE_IS_MOCK_DATA === "true") {
       const module = await import("@mocks/backoffice/UserRoleMockApi");
       return module.default;
     }
