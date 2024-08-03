@@ -54,6 +54,17 @@ class ChapterService {
     return useAppSelector((state) => state.frontside.chapter.data?.story_name ?? null, shallowEqual);
   }
 
+  public getChapterName(): string | null {
+    return useAppSelector((state) => {
+      if (state.frontside.chapter.data == null) {
+        return null;
+      }
+      const chapterId = state.frontside.chapter.data.id;
+      const currentChapter = state.frontside.chapter.data.chapter_list.filter((chapter) => chapter.id == chapterId)[0];
+      return currentChapter.name;
+    }, shallowEqual);
+  }
+
   public getChapterType(): CategoryTypeEnum | null {
     return useAppSelector((state) => state.frontside.chapter.data?.type ?? null, shallowEqual);
   }

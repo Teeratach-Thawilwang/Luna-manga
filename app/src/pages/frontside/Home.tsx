@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Helmet } from "react-helmet";
 
 import styled from "styled-components";
 
@@ -16,7 +17,6 @@ import { addEventScroll, getResponsive } from "@utils/Hooks";
 
 export default React.memo(function Home() {
   // console.log("In Home");
-  document.title = "Luna";
   const responsive = getResponsive();
   const footerRef = useRef<HTMLDivElement | null>(null);
 
@@ -45,9 +45,18 @@ export default React.memo(function Home() {
     }
   }, [lastPage, isLoading, footerRef]);
 
+  const helmetElement = (
+    <Helmet>
+      <title>Luna</title>
+      <meta name="description" content="อ่านการ์ตูนออนไลน์ อ่านการ์ตูนแปลไทย อ่านมังงะ อ่านนิยาย" />
+      <meta name="keywords" content="อ่านมังงะ อ่านนิยาย" />
+    </Helmet>
+  );
+
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
+        {helmetElement}
         <NavbarMobile />
         <DetailMobile />
         <div ref={footerRef}></div>
@@ -59,6 +68,7 @@ export default React.memo(function Home() {
   return (
     <>
       <Box>
+        {helmetElement}
         <NavbarTablet />
         <DetailTablet />
         <div ref={footerRef}></div>

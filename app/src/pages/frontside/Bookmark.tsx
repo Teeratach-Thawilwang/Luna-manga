@@ -1,4 +1,5 @@
 ﻿import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 import styled from "styled-components";
 
@@ -17,7 +18,6 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function Bookmark() {
   // console.log("In Bookmark");
-  document.title = "Luna: บุ๊กมาร์ก";
   const responsive = getResponsive();
   const isBookmarkLoaded = BookmarkService.getIsLoaded();
   const isWidgetOnPageLoaded = WidgetOnPageService.getIsLoaded();
@@ -38,9 +38,18 @@ export default function Bookmark() {
     };
   }, []);
 
+  const helmetElement = (
+    <Helmet>
+      <title>Luna: บุ๊กมาร์ก</title>
+      <meta name="description" content="อ่านการ์ตูนออนไลน์ อ่านการ์ตูนแปลไทย อ่านมังงะ อ่านนิยาย" />
+      <meta name="keywords" content="บุ๊กมาร์ก มังงะ นิยาย" />
+    </Helmet>
+  );
+
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
+        {helmetElement}
         <NavbarMobile />
         <DetailMobile />
         <FooterMobile isShow={isFooterShow} />
@@ -51,6 +60,7 @@ export default function Bookmark() {
   return (
     <>
       <Box>
+        {helmetElement}
         <NavbarTablet />
         <DetailTablet />
         <FooterTablet isShow={isFooterShow} />

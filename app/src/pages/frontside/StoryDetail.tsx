@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 
 import styled from "styled-components";
@@ -50,13 +51,18 @@ export default React.memo(function StoryDetail() {
     }
   }, [story, page]);
 
-  useEffect(() => {
-    document.title = story?.name ?? "Luna";
-  }, [story]);
+  const helmetElement = (
+    <Helmet>
+      <title>{story?.name ?? "Luna"}</title>
+      <meta name="description" content={`อ่าน ${story?.name ?? "มังงะ นิยาย"}`} />
+      <meta name="keywords" content={story?.name ?? "อ่านมังงะ อ่านนิยาย"} />
+    </Helmet>
+  );
 
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
+        {helmetElement}
         <NavbarMobile />
         <DetailMobile />
         <FooterMobile isShow={isFooterShow} />
@@ -67,6 +73,7 @@ export default React.memo(function StoryDetail() {
   return (
     <>
       <Box>
+        {helmetElement}
         <NavbarTablet />
         <DetailTablet />
         <FooterTablet isShow={isFooterShow} />
