@@ -1,8 +1,8 @@
 ﻿import { useEffect } from "react";
-import { Helmet } from "react-helmet";
 
 import styled from "styled-components";
 
+import CustomHelmet from "@components/frontside/CustomHelmet";
 import FooterMobile from "@components/frontside/mobile/Footer";
 import DetailMobile from "@components/frontside/mobile/bookmarkDetail/Detail";
 import NavbarMobile from "@components/frontside/mobile/navbar/Navbar";
@@ -38,18 +38,10 @@ export default function Bookmark() {
     };
   }, []);
 
-  const helmetElement = (
-    <Helmet>
-      <title>Luna: บุ๊กมาร์ก</title>
-      <meta name="description" content="อ่านการ์ตูนออนไลน์ อ่านการ์ตูนแปลไทย อ่านมังงะ อ่านนิยาย" />
-      <meta name="keywords" content="บุ๊กมาร์ก มังงะ นิยาย" />
-    </Helmet>
-  );
-
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
-        {helmetElement}
+        <CustomHelmet title="Luna: บุ๊กมาร์ก" />
         <NavbarMobile />
         <DetailMobile />
         <FooterMobile isShow={isFooterShow} />
@@ -60,7 +52,7 @@ export default function Bookmark() {
   return (
     <>
       <Box>
-        {helmetElement}
+        <CustomHelmet title="Luna: บุ๊กมาร์ก" />
         <NavbarTablet />
         <DetailTablet />
         <FooterTablet isShow={isFooterShow} />

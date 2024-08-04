@@ -1,8 +1,8 @@
 ﻿import { useEffect } from "react";
-import { Helmet } from "react-helmet";
 
 import styled from "styled-components";
 
+import CustomHelmet from "@components/frontside/CustomHelmet";
 import FooterMobile from "@components/frontside/mobile/Footer";
 import DetailMobile from "@components/frontside/mobile/categoryDetail/Detail";
 import NavbarMobile from "@components/frontside/mobile/navbar/Navbar";
@@ -52,18 +52,10 @@ export default function Category() {
     }
   }, [isCategoryLoaded]);
 
-  const helmetElement = (
-    <Helmet>
-      <title>Luna: หมวดหมู่</title>
-      <meta name="description" content="อ่านการ์ตูนออนไลน์ อ่านการ์ตูนแปลไทย อ่านมังงะ อ่านนิยาย" />
-      <meta name="keywords" content="หมวดหมู่มังงะ หมวดหมู่มังงะ" />
-    </Helmet>
-  );
-
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
-        {helmetElement}
+        <CustomHelmet title="Luna: หมวดหมู่" />
         <NavbarMobile />
         <DetailMobile />
         <FooterMobile isShow={isFooterShow} />
@@ -74,7 +66,7 @@ export default function Category() {
   return (
     <>
       <Box>
-        {helmetElement}
+        <CustomHelmet title="Luna: หมวดหมู่" />
         <NavbarTablet />
         <DetailTablet />
         <FooterTablet isShow={isFooterShow} />

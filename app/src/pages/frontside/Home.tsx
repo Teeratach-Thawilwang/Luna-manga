@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { Helmet } from "react-helmet";
 
 import styled from "styled-components";
 
+import CustomHelmet from "@components/frontside/CustomHelmet";
 import FooterMobile from "@components/frontside/mobile/Footer";
 import NavbarMobile from "@components/frontside/mobile/navbar/Navbar";
 import DetailMobile from "@components/frontside/mobile/widget/Detail";
@@ -45,18 +45,10 @@ export default React.memo(function Home() {
     }
   }, [lastPage, isLoading, footerRef]);
 
-  const helmetElement = (
-    <Helmet>
-      <title>Luna</title>
-      <meta name="description" content="อ่านการ์ตูนออนไลน์ อ่านการ์ตูนแปลไทย อ่านมังงะ อ่านนิยาย" />
-      <meta name="keywords" content="อ่านมังงะ อ่านนิยาย" />
-    </Helmet>
-  );
-
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
-        {helmetElement}
+        <CustomHelmet title="Luna" />
         <NavbarMobile />
         <DetailMobile />
         <div ref={footerRef}></div>
@@ -68,7 +60,7 @@ export default React.memo(function Home() {
   return (
     <>
       <Box>
-        {helmetElement}
+        <CustomHelmet title="Luna" />
         <NavbarTablet />
         <DetailTablet />
         <div ref={footerRef}></div>
