@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 import styled from "styled-components";
 
-import CustomHelmet from "@components/frontside/CustomHelmet";
 import FooterMobile from "@components/frontside/mobile/Footer";
 import NavbarMobile from "@components/frontside/mobile/navbar/Navbar";
 import DetailMobile from "@components/frontside/mobile/storyDetail/Detail";
@@ -29,8 +28,6 @@ export default React.memo(function StoryDetail() {
   const isStoryChapterLoaded = StoryChapterService.getStoryChapterIsLoaded();
   const isWidgetOnPageLoaded = WidgetOnPageService.getIsLoaded();
   const isFooterShow = isStoryLoaded && isStoryChapterLoaded && isWidgetOnPageLoaded;
-  const title = story?.name ?? "Luna";
-  const description = `อ่าน ${story?.name ?? "มังงะ นิยาย"}`;
 
   useEffect(() => {
     if (isStoryLoaded == false || story?.slug != slug!) {
@@ -53,10 +50,13 @@ export default React.memo(function StoryDetail() {
     }
   }, [story, page]);
 
+  useEffect(() => {
+    document.title = story?.name ?? "Luna";
+  }, [story]);
+
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
-        <CustomHelmet title={title} description={description} />
         <NavbarMobile />
         <DetailMobile />
         <FooterMobile isShow={isFooterShow} />
@@ -67,7 +67,6 @@ export default React.memo(function StoryDetail() {
   return (
     <>
       <Box>
-        <CustomHelmet title={title} description={description} />
         <NavbarTablet />
         <DetailTablet />
         <FooterTablet isShow={isFooterShow} />

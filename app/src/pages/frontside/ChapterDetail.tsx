@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 import styled from "styled-components";
 
-import CustomHelmet from "@components/frontside/CustomHelmet";
 import FooterMobile from "@components/frontside/mobile/Footer";
 import DetailMobile from "@components/frontside/mobile/chapterDetail/Detail";
 import NavbarMobile from "@components/frontside/mobile/navbar/Navbar";
@@ -24,13 +23,10 @@ export default React.memo(function ChapterDetail() {
   const responsive = getResponsive();
   const chapterId = ChapterService.getChapterId();
   const storyName = ChapterService.getStoryName();
-  const chapterName = ChapterService.getChapterName();
   const isChapterLoaded = ChapterService.getChapterIsLoaded();
   const isCommentLoaded = ChapterCommentService.getCommentIsLoaded();
   const isWidgetOnPageLoaded = WidgetOnPageService.getIsLoaded();
   const isFooterShow = isChapterLoaded && isCommentLoaded && isWidgetOnPageLoaded;
-  const title = storyName ?? "Luna";
-  const description = `อ่าน ${storyName != null ? storyName + " " + chapterName : "มังงะ นิยาย"}`;
 
   useEffect(() => {
     if (isWidgetOnPageLoaded == false) {
@@ -52,6 +48,7 @@ export default React.memo(function ChapterDetail() {
 
   useEffect(() => {
     if (storyName != null && chapterId != null) {
+      document.title = storyName ?? "Luna";
       ChapterCommentService.loadIndex(chapterId, 1);
     }
     return () => {
@@ -62,7 +59,6 @@ export default React.memo(function ChapterDetail() {
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
-        <CustomHelmet title={title} description={description} />
         <NavbarMobile />
         <DetailMobile />
         <FooterMobile isShow={isFooterShow} />
@@ -73,7 +69,6 @@ export default React.memo(function ChapterDetail() {
   return (
     <>
       <Box>
-        <CustomHelmet title={title} description={description} />
         <NavbarTablet />
         <DetailTablet />
         <FooterTablet isShow={isFooterShow} />

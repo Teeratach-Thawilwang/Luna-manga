@@ -2,7 +2,6 @@
 
 import styled from "styled-components";
 
-import CustomHelmet from "@components/frontside/CustomHelmet";
 import FooterMobile from "@components/frontside/mobile/Footer";
 import DetailMobile from "@components/frontside/mobile/categoryDetail/Detail";
 import NavbarMobile from "@components/frontside/mobile/navbar/Navbar";
@@ -20,6 +19,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function Category() {
   // console.log("In Category");
+  document.title = "Luna: หมวดหมู่";
   const responsive = getResponsive();
   const categories = CategoryService.getCategory();
   const isCategoryLoaded = CategoryService.getIsLoaded();
@@ -55,7 +55,6 @@ export default function Category() {
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
-        <CustomHelmet title="Luna: หมวดหมู่" />
         <NavbarMobile />
         <DetailMobile />
         <FooterMobile isShow={isFooterShow} />
@@ -66,7 +65,6 @@ export default function Category() {
   return (
     <>
       <Box>
-        <CustomHelmet title="Luna: หมวดหมู่" />
         <NavbarTablet />
         <DetailTablet />
         <FooterTablet isShow={isFooterShow} />

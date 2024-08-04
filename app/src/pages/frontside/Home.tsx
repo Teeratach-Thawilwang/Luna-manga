@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 
 import styled from "styled-components";
 
-import CustomHelmet from "@components/frontside/CustomHelmet";
 import FooterMobile from "@components/frontside/mobile/Footer";
 import NavbarMobile from "@components/frontside/mobile/navbar/Navbar";
 import DetailMobile from "@components/frontside/mobile/widget/Detail";
@@ -17,6 +16,7 @@ import { addEventScroll, getResponsive } from "@utils/Hooks";
 
 export default React.memo(function Home() {
   // console.log("In Home");
+  document.title = "Luna";
   const responsive = getResponsive();
   const footerRef = useRef<HTMLDivElement | null>(null);
 
@@ -48,7 +48,6 @@ export default React.memo(function Home() {
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
-        <CustomHelmet title="Luna" />
         <NavbarMobile />
         <DetailMobile />
         <div ref={footerRef}></div>
@@ -60,7 +59,6 @@ export default React.memo(function Home() {
   return (
     <>
       <Box>
-        <CustomHelmet title="Luna" />
         <NavbarTablet />
         <DetailTablet />
         <div ref={footerRef}></div>

@@ -2,7 +2,6 @@
 
 import styled from "styled-components";
 
-import CustomHelmet from "@components/frontside/CustomHelmet";
 import FooterMobile from "@components/frontside/mobile/Footer";
 import DetailMobile from "@components/frontside/mobile/bookmarkDetail/Detail";
 import NavbarMobile from "@components/frontside/mobile/navbar/Navbar";
@@ -18,6 +17,7 @@ import { getResponsive } from "@utils/Hooks";
 
 export default function Bookmark() {
   // console.log("In Bookmark");
+  document.title = "Luna: บุ๊กมาร์ก";
   const responsive = getResponsive();
   const isBookmarkLoaded = BookmarkService.getIsLoaded();
   const isWidgetOnPageLoaded = WidgetOnPageService.getIsLoaded();
@@ -41,7 +41,6 @@ export default function Bookmark() {
   if (responsive === ResponsiveEnum.MOBILE) {
     return (
       <Box>
-        <CustomHelmet title="Luna: บุ๊กมาร์ก" />
         <NavbarMobile />
         <DetailMobile />
         <FooterMobile isShow={isFooterShow} />
@@ -52,7 +51,6 @@ export default function Bookmark() {
   return (
     <>
       <Box>
-        <CustomHelmet title="Luna: บุ๊กมาร์ก" />
         <NavbarTablet />
         <DetailTablet />
         <FooterTablet isShow={isFooterShow} />
