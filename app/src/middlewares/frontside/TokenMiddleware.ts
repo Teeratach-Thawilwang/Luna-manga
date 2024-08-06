@@ -1,4 +1,6 @@
-﻿import ApiClient from "@repositories/ApiClient";
+﻿import { ResponseErrorEnum } from "@enums/ResponseErrorEnum";
+import { AxiosResponseError } from "@interfaces/ResponseErrorInterface";
+import ApiClient from "@repositories/ApiClient";
 import AuthService from "@services/frontside/AuthService";
 import CookieService from "@services/frontside/CookieService";
 import CustomerProfileService from "@services/frontside/CustomerProfileService";
@@ -23,9 +25,15 @@ export default async function TokenMiddleware(): Promise<boolean> {
         CookieService.setLoggedIn();
         return true;
       })
-      .catch(() => {
-        CookieService.setLogout();
-        return false;
+      .catch((e: AxiosResponseError) => {
+        switch (e.data.error) {
+          case ResponseErrorEnum.RESOURCE_NOT_FOUND:
+            CookieService.setLogout();
+            AuthService.getTokenThenCallback(() => {});
+            return true;
+          default:
+            return false;
+        }
       });
   }
 

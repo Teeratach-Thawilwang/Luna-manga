@@ -61,13 +61,14 @@ class CustomerProfileService {
         return true;
       })
       .catch((e: AxiosResponseError) => {
-        console.log(e);
         switch (e.data.error) {
           case ResponseErrorEnum.TOKEN_EXPIRED:
             AuthService.getTokenThenCallback(() => {
               this.loadProfile();
             });
             return true;
+          case ResponseErrorEnum.RESOURCE_NOT_FOUND:
+            throw e;
           default:
             store.dispatch(update({ is_loading: false, error: e.data }));
             navigateTo(`/something-went-wrong?data=${JSON.stringify(e.data)}`);

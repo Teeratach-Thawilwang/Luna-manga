@@ -96,6 +96,7 @@ class WidgetService {
             });
             break;
           case ResponseErrorEnum.AUTHENTICATION_FAILED:
+          case ResponseErrorEnum.RESOURCE_NOT_FOUND:
             CookieService.setLogout();
             AuthService.getTokenThenCallback(() => {
               this.loadIndex(page);
