@@ -34,7 +34,7 @@ const Box = styled(Link)`
 `;
 
 const BoxLoading = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   box-sizing: border-box;
 
   position: absolute;
