@@ -1,46 +1,52 @@
+import { Suspense, lazy } from "react";
+
 import { PermissionEnum } from "@enums/backoffice/PermissionEnum";
-import Middleware from "@middlewares/Middleware";
 import GuestMiddleware from "@middlewares/backoffice/GuestMiddleware";
 import PermissionMiddleware from "@middlewares/backoffice/PermissionMiddleware";
 import TokenMiddleware from "@middlewares/backoffice/TokenMiddleware";
-import BannerCreate from "@pages/backoffice/BannerCreate";
-import BannerDetail from "@pages/backoffice/BannerDetail";
-import BannerList from "@pages/backoffice/BannerList";
-import CategoryCreate from "@pages/backoffice/CategoryCreate";
-import CategoryDetail from "@pages/backoffice/CategoryDetail";
-import CategoryList from "@pages/backoffice/CategoryList";
-import ChapterCreate from "@pages/backoffice/ChapterCreate";
-import ChapterDetail from "@pages/backoffice/ChapterDetail";
-import ChapterList from "@pages/backoffice/ChapterList";
-import CustomerDetail from "@pages/backoffice/CustomerDetail";
-import CustomerGroupCreate from "@pages/backoffice/CustomerGroupCreate";
-import CustomerGroupDetail from "@pages/backoffice/CustomerGroupDetail";
-import CustomerGroupList from "@pages/backoffice/CustomerGroupList";
-import CustomerList from "@pages/backoffice/CustomerList";
-import CustomerReportDetail from "@pages/backoffice/CustomerReportDetail";
-import CustomerReportList from "@pages/backoffice/CustomerReportList";
-import Dashboard from "@pages/backoffice/Dashboard";
-import LogIn from "@pages/backoffice/LogIn";
-import StoryCreate from "@pages/backoffice/StoryCreate";
-import StoryDetail from "@pages/backoffice/StoryDetail";
-import StoryList from "@pages/backoffice/StoryList";
-import UserCreate from "@pages/backoffice/UserCreate";
-import UserDetail from "@pages/backoffice/UserDetail";
-import UserList from "@pages/backoffice/UserList";
-import UserRoleCreate from "@pages/backoffice/UserRoleCreate";
-import UserRoleDetail from "@pages/backoffice/UserRoleDetail";
-import UserRoleList from "@pages/backoffice/UserRoleList";
-import WidgetCreate from "@pages/backoffice/WidgetCreate";
-import WidgetDetail from "@pages/backoffice/WidgetDetail";
-import WidgetList from "@pages/backoffice/WidgetList";
-import WidgetSequence from "@pages/backoffice/WidgetSequence";
+import FallBack from "@routes/FallBack";
+
+const Middleware = lazy(() => import("@middlewares/Middleware"));
+const BannerCreate = lazy(() => import("@pages/backoffice/BannerCreate"));
+const BannerDetail = lazy(() => import("@pages/backoffice/BannerDetail"));
+const BannerList = lazy(() => import("@pages/backoffice/BannerList"));
+const CategoryCreate = lazy(() => import("@pages/backoffice/CategoryCreate"));
+const CategoryDetail = lazy(() => import("@pages/backoffice/CategoryDetail"));
+const CategoryList = lazy(() => import("@pages/backoffice/CategoryList"));
+const ChapterCreate = lazy(() => import("@pages/backoffice/ChapterCreate"));
+const ChapterDetail = lazy(() => import("@pages/backoffice/ChapterDetail"));
+const ChapterList = lazy(() => import("@pages/backoffice/ChapterList"));
+const CustomerDetail = lazy(() => import("@pages/backoffice/CustomerDetail"));
+const CustomerGroupCreate = lazy(() => import("@pages/backoffice/CustomerGroupCreate"));
+const CustomerGroupDetail = lazy(() => import("@pages/backoffice/CustomerGroupDetail"));
+const CustomerGroupList = lazy(() => import("@pages/backoffice/CustomerGroupList"));
+const CustomerList = lazy(() => import("@pages/backoffice/CustomerList"));
+const CustomerReportDetail = lazy(() => import("@pages/backoffice/CustomerReportDetail"));
+const CustomerReportList = lazy(() => import("@pages/backoffice/CustomerReportList"));
+const Dashboard = lazy(() => import("@pages/backoffice/Dashboard"));
+const LogIn = lazy(() => import("@pages/backoffice/LogIn"));
+const StoryCreate = lazy(() => import("@pages/backoffice/StoryCreate"));
+const StoryDetail = lazy(() => import("@pages/backoffice/StoryDetail"));
+const StoryList = lazy(() => import("@pages/backoffice/StoryList"));
+const UserCreate = lazy(() => import("@pages/backoffice/UserCreate"));
+const UserDetail = lazy(() => import("@pages/backoffice/UserDetail"));
+const UserList = lazy(() => import("@pages/backoffice/UserList"));
+const UserRoleCreate = lazy(() => import("@pages/backoffice/UserRoleCreate"));
+const UserRoleDetail = lazy(() => import("@pages/backoffice/UserRoleDetail"));
+const UserRoleList = lazy(() => import("@pages/backoffice/UserRoleList"));
+const WidgetCreate = lazy(() => import("@pages/backoffice/WidgetCreate"));
+const WidgetDetail = lazy(() => import("@pages/backoffice/WidgetDetail"));
+const WidgetList = lazy(() => import("@pages/backoffice/WidgetList"));
+const WidgetSequence = lazy(() => import("@pages/backoffice/WidgetSequence"));
 
 const backoffice = [
   {
     path: "/login",
     element: (
       <Middleware middleware={[GuestMiddleware]}>
-        <LogIn />
+        <Suspense fallback={<FallBack />}>
+          <LogIn />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -48,7 +54,9 @@ const backoffice = [
     path: "/",
     element: (
       <Middleware middleware={[TokenMiddleware]}>
-        <Dashboard />
+        <Suspense fallback={<FallBack />}>
+          <Dashboard />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -57,7 +65,9 @@ const backoffice = [
     path: "/stories/:type",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.STORY_VIEW)]}>
-        <StoryList />
+        <Suspense fallback={<FallBack />}>
+          <StoryList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -65,7 +75,9 @@ const backoffice = [
     path: "/story/:type/create",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.STORY_MANGE)]}>
-        <StoryCreate />
+        <Suspense fallback={<FallBack />}>
+          <StoryCreate />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -73,7 +85,9 @@ const backoffice = [
     path: "/story/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.STORY_VIEW)]}>
-        <StoryDetail />
+        <Suspense fallback={<FallBack />}>
+          <StoryDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -82,7 +96,9 @@ const backoffice = [
     path: "/chapters/:type",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CATEGORY_VIEW)]}>
-        <ChapterList />
+        <Suspense fallback={<FallBack />}>
+          <ChapterList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -90,7 +106,9 @@ const backoffice = [
     path: "/chapter/:type/create",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CATEGORY_MANGE)]}>
-        <ChapterCreate />
+        <Suspense fallback={<FallBack />}>
+          <ChapterCreate />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -98,7 +116,9 @@ const backoffice = [
     path: "/chapter/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CATEGORY_VIEW)]}>
-        <ChapterDetail />
+        <Suspense fallback={<FallBack />}>
+          <ChapterDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -107,7 +127,9 @@ const backoffice = [
     path: "/categories",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CATEGORY_VIEW)]}>
-        <CategoryList />
+        <Suspense fallback={<FallBack />}>
+          <CategoryList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -115,7 +137,9 @@ const backoffice = [
     path: "/category/create",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CATEGORY_MANGE)]}>
-        <CategoryCreate />
+        <Suspense fallback={<FallBack />}>
+          <CategoryCreate />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -123,7 +147,9 @@ const backoffice = [
     path: "/category/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CATEGORY_VIEW)]}>
-        <CategoryDetail />
+        <Suspense fallback={<FallBack />}>
+          <CategoryDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -132,7 +158,9 @@ const backoffice = [
     path: "/customers",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CUSTOMERS_VIEW)]}>
-        <CustomerList />
+        <Suspense fallback={<FallBack />}>
+          <CustomerList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -140,7 +168,9 @@ const backoffice = [
     path: "/customer/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CUSTOMERS_VIEW)]}>
-        <CustomerDetail />
+        <Suspense fallback={<FallBack />}>
+          <CustomerDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -149,7 +179,9 @@ const backoffice = [
     path: "/customer-groups",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CUSTOMER_GROUPS_VIEW)]}>
-        <CustomerGroupList />
+        <Suspense fallback={<FallBack />}>
+          <CustomerGroupList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -157,7 +189,9 @@ const backoffice = [
     path: "/customer-group/create",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CUSTOMER_GROUPS_MANGE)]}>
-        <CustomerGroupCreate />
+        <Suspense fallback={<FallBack />}>
+          <CustomerGroupCreate />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -165,7 +199,9 @@ const backoffice = [
     path: "/customer-group/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CUSTOMER_GROUPS_VIEW)]}>
-        <CustomerGroupDetail />
+        <Suspense fallback={<FallBack />}>
+          <CustomerGroupDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -174,7 +210,9 @@ const backoffice = [
     path: "/users",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.USER_VIEW)]}>
-        <UserList />
+        <Suspense fallback={<FallBack />}>
+          <UserList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -182,7 +220,9 @@ const backoffice = [
     path: "/user/create",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.USER_MANGE)]}>
-        <UserCreate />
+        <Suspense fallback={<FallBack />}>
+          <UserCreate />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -190,7 +230,9 @@ const backoffice = [
     path: "/user/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.USER_VIEW)]}>
-        <UserDetail />
+        <Suspense fallback={<FallBack />}>
+          <UserDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -199,7 +241,9 @@ const backoffice = [
     path: "/user-roles",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.ROLE_VIEW)]}>
-        <UserRoleList />
+        <Suspense fallback={<FallBack />}>
+          <UserRoleList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -207,7 +251,9 @@ const backoffice = [
     path: "/user-role/create",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.ROLE_MANGE)]}>
-        <UserRoleCreate />
+        <Suspense fallback={<FallBack />}>
+          <UserRoleCreate />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -215,7 +261,9 @@ const backoffice = [
     path: "/user-role/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.ROLE_VIEW)]}>
-        <UserRoleDetail />
+        <Suspense fallback={<FallBack />}>
+          <UserRoleDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -224,7 +272,9 @@ const backoffice = [
     path: "/banners",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.BANNER_VIEW)]}>
-        <BannerList />
+        <Suspense fallback={<FallBack />}>
+          <BannerList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -232,7 +282,9 @@ const backoffice = [
     path: "/banner/create/:type",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.BANNER_MANGE)]}>
-        <BannerCreate />
+        <Suspense fallback={<FallBack />}>
+          <BannerCreate />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -240,7 +292,9 @@ const backoffice = [
     path: "/banner/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.BANNER_VIEW)]}>
-        <BannerDetail />
+        <Suspense fallback={<FallBack />}>
+          <BannerDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -249,7 +303,9 @@ const backoffice = [
     path: "/widgets",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.WIDGET_VIEW)]}>
-        <WidgetList />
+        <Suspense fallback={<FallBack />}>
+          <WidgetList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -257,7 +313,9 @@ const backoffice = [
     path: "/widget/create/:type",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.WIDGET_MANGE)]}>
-        <WidgetCreate />
+        <Suspense fallback={<FallBack />}>
+          <WidgetCreate />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -265,7 +323,9 @@ const backoffice = [
     path: "/widget/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.WIDGET_VIEW)]}>
-        <WidgetDetail />
+        <Suspense fallback={<FallBack />}>
+          <WidgetDetail />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -273,7 +333,9 @@ const backoffice = [
     path: "/widget-sequence",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.WIDGET_VIEW)]}>
-        <WidgetSequence />
+        <Suspense fallback={<FallBack />}>
+          <WidgetSequence />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -282,7 +344,9 @@ const backoffice = [
     path: "/customer-reports",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CUSTOMER_REPORT_VIEW)]}>
-        <CustomerReportList />
+        <Suspense fallback={<FallBack />}>
+          <CustomerReportList />
+        </Suspense>
       </Middleware>
     ),
   },
@@ -290,7 +354,9 @@ const backoffice = [
     path: "/customer-report/:id",
     element: (
       <Middleware middleware={[TokenMiddleware, () => PermissionMiddleware(PermissionEnum.CUSTOMER_REPORT_VIEW)]}>
-        <CustomerReportDetail />
+        <Suspense fallback={<FallBack />}>
+          <CustomerReportDetail />
+        </Suspense>
       </Middleware>
     ),
   },
