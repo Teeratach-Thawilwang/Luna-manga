@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -20,8 +20,9 @@ import { getResponsive } from "@utils/Hooks";
 export default React.memo(function StoryDetail() {
   // console.log("In StoryDetail");
   const { slug } = useParams();
-  const urlParams = new URLSearchParams(window.location.search);
-  const page = Number(urlParams.get("page") ?? 1);
+  const [searchParams] = useSearchParams();
+  const page = Number(searchParams.get("page") ?? 1);
+
   const responsive = getResponsive();
   const story = StoryService.getStory();
   const isStoryLoaded = StoryService.getStoryIsLoaded();
@@ -45,10 +46,10 @@ export default React.memo(function StoryDetail() {
   }, [slug]);
 
   useEffect(() => {
-    if (isStoryChapterLoaded || story?.slug != slug!) {
+    if (slug != undefined) {
       StoryChapterService.loadStoryChapter(slug!, page);
     }
-  }, [story, page]);
+  }, [slug, page]);
 
   useEffect(() => {
     document.title = story?.name ?? "Luna";
