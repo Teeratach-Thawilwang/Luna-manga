@@ -27,23 +27,24 @@ export default function StoryHeaderRatingViewCount({ ratingScore, viewCount }: {
 const Box = styled.div`
   /* border: 1px solid red; */
   box-sizing: border-box;
-  min-width: 150px;
-  width: fit-content;
+  width: 100%;
   margin-top: ${(props) => box(props).space.sm};
 
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: ${(props) => box(props).space.md};
 `;
 
 const Wrap = styled.div`
   /* border: 1px solid red; */
   box-sizing: border-box;
   height: 100%;
-  width: 100%;
+  width: fit-content;
 
   display: flex;
   flex-wrap: nowrap;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 `;
 

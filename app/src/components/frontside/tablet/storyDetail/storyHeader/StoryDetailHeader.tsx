@@ -56,7 +56,7 @@ const Image = styled.img`
 `;
 
 const Container = styled.div`
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   width: 100%;
   margin-top: ${(props) => box(props).space.lg};
 
@@ -125,6 +125,7 @@ const Author = styled.div`
   /* border: 1px solid green; */
   box-sizing: border-box;
   margin-top: ${(props) => box(props).space.md};
+  padding: 0 ${(props) => box(props).space.md};
 
   color: ${(props) => color(props).onSurface};
 
