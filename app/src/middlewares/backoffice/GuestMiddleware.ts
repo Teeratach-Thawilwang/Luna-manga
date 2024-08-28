@@ -1,4 +1,4 @@
-﻿import ApiClient from "@repositories/ApiClient";
+﻿import ApiClient from "@repositories/backoffice/ApiClient";
 import AuthService from "@services/backoffice/AuthService";
 import CookieService from "@services/backoffice/CookieService";
 import UserProfileService from "@services/backoffice/UserProfileService";

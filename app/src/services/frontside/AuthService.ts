@@ -11,7 +11,7 @@ import {
   TokenParams,
   TokenResponse,
 } from "@interfaces/frontside/AuthInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 import AuthApi from "@repositories/frontside/AuthApi";
 import CookieService from "@services/frontside/CookieService";
 import SignInSignUpService from "@services/frontside/SignInSignUpService";

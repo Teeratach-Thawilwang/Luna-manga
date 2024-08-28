@@ -1,5 +1,5 @@
 ﻿import { CustomerReportParams, CustomerReportResponse } from "@interfaces/frontside/CustomerReportInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

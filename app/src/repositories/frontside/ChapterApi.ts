@@ -1,5 +1,5 @@
 ﻿import { ChapterReactionParams, ChapterReactionResponse, ChapterShowParams, ChapterShowResponse } from "@interfaces/frontside/ChapterInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

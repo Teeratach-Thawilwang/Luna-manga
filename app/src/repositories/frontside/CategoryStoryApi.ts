@@ -1,5 +1,5 @@
 ﻿import { CategoryStoryIndexParams, CategoryStoryIndexResponse } from "@interfaces/frontside/CategoryStoryInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

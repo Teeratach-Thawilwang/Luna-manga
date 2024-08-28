@@ -10,7 +10,7 @@
   UpdateWidgetParams,
   UpdateWidgetResponse,
 } from "@interfaces/backoffice/WidgetInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/backoffice/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

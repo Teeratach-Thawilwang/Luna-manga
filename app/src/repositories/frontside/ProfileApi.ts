@@ -1,5 +1,5 @@
 ﻿import { ProfileParams, ProfileResponse } from "@interfaces/frontside/ProfileInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

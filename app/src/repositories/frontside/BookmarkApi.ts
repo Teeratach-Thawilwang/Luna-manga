@@ -6,7 +6,7 @@
   BookmarkIndexParams,
   BookmarkIndexResponse,
 } from "@interfaces/frontside/BookmarkInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

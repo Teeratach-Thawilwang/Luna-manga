@@ -1,5 +1,5 @@
 ﻿import { FileUploadParams, FileUploadResponse } from "@interfaces/frontside/FileInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 import { toFormData } from "@utils/Helpers";
 
 type ReturnType<T> = Promise<T>;

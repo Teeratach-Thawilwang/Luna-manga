@@ -10,7 +10,7 @@
   UpdateChapterParams,
   UpdateChapterResponse,
 } from "@interfaces/backoffice/ChapterInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/backoffice/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

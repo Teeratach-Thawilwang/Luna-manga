@@ -16,7 +16,7 @@
   TokenParams,
   TokenResponse,
 } from "@interfaces/frontside/AuthInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

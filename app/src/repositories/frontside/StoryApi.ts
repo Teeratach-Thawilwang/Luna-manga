@@ -1,5 +1,5 @@
 ﻿import { StoryReactionParams, StoryReactionResponse, StoryShowParams, StoryShowResponse } from "@interfaces/frontside/StoryInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 
@@ -19,6 +19,7 @@ class StoryApi {
     if (StoryMockApi) {
       return StoryMockApi.show(params, true);
     }
+    console.log("herere API");
     return ApiClient.get<StoryShowParams, StoryShowResponse>(`${this.baseUrl}/story/${params.slug}`, params);
   }
 

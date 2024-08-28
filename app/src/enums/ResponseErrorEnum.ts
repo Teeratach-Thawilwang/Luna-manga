@@ -1,6 +1,7 @@
 ﻿export enum ResponseErrorEnum {
   RESOURCE_NOT_FOUND = "Resource Not Found.",
   AUTHENTICATION_FAILED = "Authentication Failed.",
+  TOKEN_NOT_FOUND = "Token Not Found.",
   TOKEN_EXPIRED = "Token Expired.",
   TOKEN_INVALID = "Token Invalid.",
   INACTIVE_ACCOUNT = "Inactive Account.",

@@ -6,7 +6,7 @@
   UpdateCustomerParams,
   UpdateCustomerResponse,
 } from "@interfaces/backoffice/CustomerInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/backoffice/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

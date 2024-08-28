@@ -1,5 +1,5 @@
 ﻿import { GetPermissionListParams, GetPermissionListResponse } from "@interfaces/backoffice/PermissionInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/backoffice/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

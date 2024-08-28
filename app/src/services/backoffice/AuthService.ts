@@ -3,6 +3,7 @@
 import { ResponseErrorEnum } from "@enums/ResponseErrorEnum";
 import { AxiosResponseError } from "@interfaces/ResponseErrorInterface";
 import { RefreshTokenParams, RefreshTokenResponse, SessionTokenParams } from "@interfaces/backoffice/AuthInterface";
+import ApiClient from "@repositories/backoffice/ApiClient";
 import AuthApi from "@repositories/backoffice/AuthApi";
 import CookieService from "@services/backoffice/CookieService";
 import SignInService from "@services/backoffice/SignInService";
@@ -41,6 +42,7 @@ class AuthService {
         CookieService.setAccessToken(response.access_token, response.access_token_expired_day);
         CookieService.setRefreshToken(response.refresh_token, response.refresh_token_expired_day);
         CookieService.setLoggedIn();
+        ApiClient.setAuthToken(response.access_token);
         navigateTo(`/backoffice`, true);
       })
       .catch((e: AxiosResponseError) => {
@@ -71,6 +73,7 @@ class AuthService {
       .then((response) => {
         CookieService.setAccessToken(response.access_token, response.access_token_expired_day);
         CookieService.setRefreshToken(response.refresh_token, response.refresh_token_expired_day);
+        ApiClient.setAuthToken(response.access_token);
         return response;
       })
       .catch((e: AxiosResponseError) => {

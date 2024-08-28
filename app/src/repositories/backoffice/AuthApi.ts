@@ -6,7 +6,7 @@
   SessionTokenParams,
   SessionTokenResponse,
 } from "@interfaces/backoffice/AuthInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/backoffice/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

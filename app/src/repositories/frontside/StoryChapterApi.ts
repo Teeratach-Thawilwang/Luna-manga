@@ -1,5 +1,5 @@
 ﻿import { StoryChapterParams, StoryChapterResponse } from "@interfaces/frontside/StoryChapterInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

@@ -1,5 +1,5 @@
 ﻿import { GetDashboardParams, GetDashboardResponse } from "@interfaces/backoffice/DashboardInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/backoffice/ApiClient";
 
 type ReturnType<T> = Promise<T>;
 

@@ -1,6 +1,6 @@
 ﻿import { ResponseErrorEnum } from "@enums/ResponseErrorEnum";
 import { AxiosResponseError } from "@interfaces/ResponseErrorInterface";
-import ApiClient from "@repositories/ApiClient";
+import ApiClient from "@repositories/frontside/ApiClient";
 import AuthService from "@services/frontside/AuthService";
 import CookieService from "@services/frontside/CookieService";
 import CustomerProfileService from "@services/frontside/CustomerProfileService";
