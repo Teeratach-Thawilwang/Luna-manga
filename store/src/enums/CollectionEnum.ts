@@ -1,0 +1,15 @@
+export enum CollectionEnum {
+  BANNER_STORY = "banner_story",
+  BANNER_CHAPTER = "banner_chapter",
+  BANNER_STORY_WINDOW_1 = "banner_story_window_1",
+  BANNER_STORY_WINDOW_2 = "banner_story_window_2",
+  BANNER_STORY_WINDOW_3 = "banner_story_window_3",
+  BANNER_ADVERTISEMENT_SMALL = "banner_advertisement_small",
+  BANNER_ADVERTISEMENT_MEDIUM = "banner_advertisement_medium",
+  BANNER_ADVERTISEMENT_GROUP = "banner_advertisement_group",
+  PROFILE_IMAGE = "profile_image",
+  STORY_IMAGE = "story_image",
+  CHAPTER_COVER_IMAGE = "chapter_cover_image",
+  CATEGORY_IMAGE = "category_image",
+  CHAPTER_AUDIO = "chapter_audio",
+}
