@@ -8,7 +8,7 @@ export default forwardRef<HTMLDivElement | null, { isShow: boolean }>(function F
   return (
     <Box ref={ref} $isShow={isShow}>
       <Text>
-        © Copyright {new Date().getFullYear()} - {import.meta.env.VITE_WEB_URL} All Rights Reserved.
+        © Copyright {new Date().getFullYear()} - {import.meta.env.VITE_WEB_URL}.
       </Text>
       <Text>อ่านการ์ตูนออนไลน์ อ่านการ์ตูนแปลไทย เว็บอ่านการ์ตูน มังงะ มังงะแปลไทย.</Text>
       <Text>ติดต่อแอดมินหรือติดต่อลงโฆษณา {import.meta.env.VITE_ADMIN_EMAIL}.</Text>
