@@ -15,6 +15,7 @@ dist-ssr
 .env.dev
 .env.production
 */nginx/ssl/*
+maintenance
 
 # Editor directories and files
 .vscode/*
