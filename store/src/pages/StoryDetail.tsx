@@ -53,7 +53,9 @@ export default React.memo(function StoryDetail() {
   }, [slug, page]);
 
   useEffect(() => {
-    document.title = story?.name ?? "Luna";
+    if (story != null) {
+      document.title = `อ่าน ${story?.name}`;
+    }
   }, [story]);
 
   if (responsive === ResponsiveEnum.MOBILE) {
