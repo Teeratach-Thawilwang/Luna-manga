@@ -7,13 +7,10 @@ import { box, color, font } from "@utils/Themes";
 export default forwardRef<HTMLDivElement | null, { isShow: boolean }>(function Footer({ isShow }, ref) {
   return (
     <Box ref={ref} $isShow={isShow}>
-      <Text>© Copyright {new Date().getFullYear()}</Text>
-      <Text>{import.meta.env.VITE_WEB_URL}.</Text>
+      <Text>{import.meta.env.VITE_WEB_URL}</Text>
+      <Text>เว็บอ่านการ์ตูนออนไลน์ มังงะ มังฮวา นิยายแปลไทย</Text>
       <Line>·</Line>
-      <Text>อ่านการ์ตูนออนไลน์ อ่านการ์ตูนแปลไทย.</Text>
-      <Text>เว็บอ่านการ์ตูน มังงะ มังงะแปลไทย.</Text>
-      <Line>·</Line>
-      <Text>ติดต่อแอดมินหรือติดต่อลงโฆษณา {import.meta.env.VITE_ADMIN_EMAIL}.</Text>
+      <Text>ติดต่อแอดมินหรือติดต่อลงโฆษณา {import.meta.env.VITE_ADMIN_EMAIL}</Text>
     </Box>
   );
 });
