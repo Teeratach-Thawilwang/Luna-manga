@@ -74,7 +74,7 @@ class WidgetService {
     store.dispatch(pushWidgets(data));
   }
 
-  public loadIndex(page: number = 1, perPage: number = 4): void {
+  public loadIndex(page: number = 1, perPage: number = 3): void {
     store.dispatch(update({ is_loading: true }));
 
     const params: WidgetIndexParams = {
