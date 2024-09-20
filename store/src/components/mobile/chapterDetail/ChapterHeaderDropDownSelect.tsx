@@ -39,7 +39,7 @@ export default function ChapterHeaderDropDownSelect() {
     <>
       <Box>
         <Selector ref={dropDownRef} onClick={() => setIsModalShow((prev) => !prev)}>
-          {currentChapter.name}
+          <Text>{currentChapter.name}</Text>
           <IconBox>
             <DropdownIcon />
           </IconBox>
@@ -75,11 +75,6 @@ const Selector = styled.div`
   color: ${(props) => color(props).onSurface};
   background-color: ${(props) => color(props).surfaceContainer};
 
-  font-size: ${(props) => font(props).size.sm};
-  white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
-  overflow: hidden; /* ทำให้เนื้อหาที่เกินซ่อนไว้ */
-  text-overflow: ellipsis;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +86,16 @@ const Selector = styled.div`
     cursor: pointer;
     background-color: ${(props) => color(props).surfaceContainerHigh};
   }
+`;
+
+const Text = styled.div`
+  box-sizing: border-box;
+  width: min(55vw, 400px);
+
+  font-size: ${(props) => font(props).size.sm};
+  white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+  overflow: hidden; /* ทำให้เนื้อหาที่เกินซ่อนไว้ */
+  text-overflow: ellipsis;
 `;
 
 const IconBox = styled.div`
@@ -123,7 +128,6 @@ const OptionBox = styled.div`
 
   border: 1px solid ${(props) => color(props).outlineVariant};
   border-radius: ${(props) => box(props).borderRadius.xl};
-
   background-color: ${(props) => color(props).surfaceContainer};
 
   overflow-x: hidden;
