@@ -15,7 +15,7 @@ export default function BannerTypeChapter({ banner, isLoading }: { banner: Banne
     <Box to={url}>
       <Container $isLoading={isLoading}>
         {boxLoadingElement}
-        <ImageStory src={banner.images[0].mobile} />
+        <ImageStory src={banner.images[0].desktop} />
         <BottomContainer>
           <Title>{banner.title}</Title>
           <ChapterNumber>{banner.name}</ChapterNumber>

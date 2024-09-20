@@ -11,7 +11,7 @@ export default function BannerTypeStory(banner: BannerInterface) {
   return (
     <Box to={url}>
       <Container>
-        <ImageStory src={banner.images[0].mobile} />
+        <ImageStory src={banner.images[0].desktop} />
         <BottomContainer>
           <Title>{banner.title}</Title>
         </BottomContainer>

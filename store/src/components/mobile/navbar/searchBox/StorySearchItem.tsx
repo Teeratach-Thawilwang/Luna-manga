@@ -21,7 +21,7 @@ export default function StorySearchItem({ story, setActive }: StorySearchItemInt
   }
   return (
     <Box to={`/story/${story.slug}`} onClick={onclickHandle}>
-      <Image src={story.images[0].mobile} />
+      <Image src={story.images[0].desktop} />
       <StorySearchItemName story={story} />
       <StorySeachItemType type={story.type} />
     </Box>

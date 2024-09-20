@@ -102,8 +102,8 @@ function createImageByType(type: BannerTypeEnum): ImageInterface[] {
       id: j,
       original: image,
       desktop: image,
-      mobile: image,
-      thumbnail: image,
+      // mobile: image,
+      // thumbnail: image,
       collection_name: getCollectionNameByBannerType(type, j + 1),
     });
     if (type != BannerTypeEnum.STORY_WINDOW) {

@@ -112,7 +112,7 @@ const Input = styled.input`
 
 function getProfileImageUrl(profileImage: ImageInterface[] | null): string {
   if (profileImage != null && profileImage.length != 0) {
-    return profileImage[0].mobile;
+    return profileImage[0].desktop;
   }
   return "/default_user_circle_icon.svg";
 }

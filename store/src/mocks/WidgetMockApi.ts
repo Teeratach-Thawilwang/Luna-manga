@@ -115,7 +115,7 @@ function randomName(min: number = 3, max: number = 5) {
 
 function createBannerName(type: BannerTypeEnum) {
   if (type === BannerTypeEnum.STORY) {
-    const chapterNumber = faker.number.int({ min: 1, max: 2000 });
+    const chapterNumber = faker.number.int({ min: 1, max: 500 });
     return `ตอนที่ ${chapterNumber}`;
   }
   return randomName();
@@ -126,7 +126,7 @@ function createBannerLink(type: BannerTypeEnum, title: string) {
     return `/story/${title.replaceAll(" ", "-")}`;
   }
   if (type === BannerTypeEnum.CHAPTER) {
-    const chapterNumber = faker.number.int({ min: 1, max: 2000 });
+    const chapterNumber = faker.number.int({ min: 1, max: 500 });
     return `/story/${title.replaceAll(" ", "-")}/${chapterNumber}`;
   }
   return faker.internet.url();
@@ -140,8 +140,8 @@ function createImageByType(type: BannerTypeEnum): ImageInterface[] {
       id: j,
       original: image,
       desktop: image,
-      mobile: image,
-      thumbnail: image,
+      // mobile: image,
+      // thumbnail: image,
       collection_name: getCollectionNameByBannerType(type, j + 1),
     });
     if (type != BannerTypeEnum.STORY_WINDOW) {

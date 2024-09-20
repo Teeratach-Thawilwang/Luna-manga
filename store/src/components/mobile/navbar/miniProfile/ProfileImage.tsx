@@ -8,7 +8,7 @@ export default function ProfileImage({ isActive }: { isActive: boolean }) {
   const customerProfile = CustomerProfileService.getProfile()!;
 
   if (customerProfile.profile_image.length > 0) {
-    return <Image src={customerProfile.profile_image[0].mobile} $isActive={isActive} />;
+    return <Image src={customerProfile.profile_image[0].desktop} $isActive={isActive} />;
   }
 
   return (

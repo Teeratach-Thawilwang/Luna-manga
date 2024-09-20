@@ -19,7 +19,7 @@ export default function ProfileImage() {
 
   return (
     <Box>
-      <Image src={profileImages[0].mobile} />
+      <Image src={profileImages[0].desktop} />
     </Box>
   );
 }

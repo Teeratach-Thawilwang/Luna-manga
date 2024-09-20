@@ -2,6 +2,7 @@
 
 import { CategoryTypeEnum } from "@enums/CategoryTypeEnum";
 import { CollectionEnum } from "@enums/CollectionEnum";
+import { ImageInterface } from "@interfaces/ImageInterface";
 import { StorySearchInterface, StorySearchParams, StorySearchResponse } from "@interfaces/StorySearchInterface";
 import { randomArray } from "@utils/Helpers";
 import { returnPromise } from "@utils/MockService";
@@ -65,15 +66,15 @@ function createStorySearch(name: string): StorySearchInterface {
   };
 }
 
-function createImages(width: number = 240, height: number = 320) {
+function createImages(width: number = 240, height: number = 320): ImageInterface[] {
   const image = faker.image.url({ width: width, height: height });
   return [
     {
       id: 1,
       original: image,
       desktop: image,
-      mobile: image,
-      thumbnail: image,
+      // mobile: image,
+      // thumbnail: image,
       collection_name: CollectionEnum.STORY_IMAGE,
     },
   ];

@@ -5,7 +5,6 @@ import styled from "styled-components";
 import ChapterHeader from "@components/mobile/chapterDetail/ChapterHeader";
 import ChapterNodes from "@components/mobile/chapterDetail/ChapterNodes";
 import RequestAudioUsage from "@components/mobile/chapterDetail/RequestAudioUsage";
-import { ImageResponsiveEnum } from "@enums/ImageResponsiveEnum";
 import { ElementTypeEnum } from "@enums/SlateEditorEnum";
 import ChapterService from "@services/ChapterService";
 import { loadFontForNovel } from "@utils/Helpers";
@@ -29,7 +28,7 @@ export default function ChapterContent() {
     return <></>;
   }
 
-  const nodes = ChapterService.transformTextToEditor(chapter.text, chapter.images, chapter.audio, ImageResponsiveEnum.MOBILE);
+  const nodes = ChapterService.transformTextToEditor(chapter.text, chapter.images, chapter.audio);
   const isAudioNodeExist = nodes.some((node) => node.type == ElementTypeEnum.AUDIO);
 
   return (

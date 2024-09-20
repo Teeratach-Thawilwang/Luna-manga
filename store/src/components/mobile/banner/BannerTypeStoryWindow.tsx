@@ -14,11 +14,11 @@ export default function BannerTypeStoryWindow(banner: BannerInterface) {
   return (
     <Box to={url}>
       <Left>
-        <ImageAdvertisement src={imageWindow1.mobile} aspectRatio={1} borderRadius="10px" />
+        <ImageAdvertisement src={imageWindow1.desktop} aspectRatio={1} borderRadius="10px" />
       </Left>
       <Right>
-        <ImageAdvertisement src={imageWindow2.mobile} aspectRatio={490 / 235} borderRadius="10px" />
-        <ImageAdvertisement src={imageWindow3.mobile} aspectRatio={490 / 235} borderRadius="10px" />
+        <ImageAdvertisement src={imageWindow2.desktop} aspectRatio={490 / 235} borderRadius="10px" />
+        <ImageAdvertisement src={imageWindow3.desktop} aspectRatio={490 / 235} borderRadius="10px" />
       </Right>
     </Box>
   );

@@ -14,7 +14,7 @@ export default function StoryImageOptional() {
 
   return (
     <Box>
-      <Image src={story!.images[0].mobile} />
+      <Image src={story!.images[0].desktop} />
       <OptionalBox>{bookmarkOptionalElement}</OptionalBox>
     </Box>
   );

@@ -57,8 +57,8 @@ function reactionResponse(params?: ChapterReactionParams): ChapterReactionRespon
   let isLike = randomArray([true, false]);
   let isDislike = randomArray([true, false]);
   if (params) {
-    isLike = params?.like ?? params.like == 1 ? true : false;
-    isDislike = params?.dislike ?? params.dislike == 1 ? true : false;
+    isLike = (params?.like ?? params.like == 1) ? true : false;
+    isDislike = (params?.dislike ?? params.dislike == 1) ? true : false;
   }
   return {
     like: faker.number.int({ min: 10, max: 100 }),
@@ -76,8 +76,8 @@ function createImages(ids: number[]): ImageInterface[] {
       id: ids[i],
       original: image,
       desktop: image,
-      mobile: image,
-      thumbnail: image,
+      // mobile: image,
+      // thumbnail: image,
       collection_name: CollectionEnum.STORY_IMAGE,
     });
   }

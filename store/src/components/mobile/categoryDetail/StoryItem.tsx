@@ -17,7 +17,7 @@ export default React.memo(function StoryItem(story: CategoryStoryInterface) {
     <Box to={`/story/${story.slug}`}>
       <Container $isLoading={isLoading}>
         {boxLoadingElement}
-        <ImageStory src={story.images[0].mobile} />
+        <ImageStory src={story.images[0].desktop} />
         <BottomContainer>
           <Title>{story.name}</Title>
         </BottomContainer>

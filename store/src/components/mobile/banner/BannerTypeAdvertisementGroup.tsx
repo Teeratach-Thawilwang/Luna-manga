@@ -6,7 +6,7 @@ import { BannerInterface } from "@interfaces/BannerInterface";
 export default function BannerTypeAdvertisementGroup(banner: BannerInterface) {
   return (
     <Box onClick={() => window.open(banner.link, "_blank")}>
-      <ImageAdvertisement src={banner.images[0].mobile} aspectRatio={1000 / 180} />
+      <ImageAdvertisement src={banner.images[0].desktop} aspectRatio={1000 / 180} />
     </Box>
   );
 }
