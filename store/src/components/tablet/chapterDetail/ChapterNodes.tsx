@@ -16,7 +16,7 @@ interface ChapterNodesInterface {
 
 export default function ChapterNodes({ nodes, isAudioAccept }: ChapterNodesInterface) {
   const footerRef = useRef<HTMLDivElement | null>(null);
-  const skipNodeNumber = 5;
+  const skipNodeNumber = 2;
   const initialRenderNodes = [...nodes.slice(0, skipNodeNumber)];
   const [isAdding, setIsAdding] = useState(false);
   const [renderNodes, setRenderNodes] = useState<TextEditorElement[] | MangaEditorElement[]>(initialRenderNodes);
