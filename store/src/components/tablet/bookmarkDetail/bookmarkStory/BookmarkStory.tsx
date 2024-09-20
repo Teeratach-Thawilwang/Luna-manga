@@ -23,7 +23,7 @@ export default function BookmarkStory({ story }: { story: BookmarkStoryInterface
       <Box $isLoading={isLoading}>
         {boxLoadingElement}
         <ImageBox to={`/story/${story.slug}`}>
-          <ImageStory src={story.images[0].thumbnail} borderRadius="4px" />
+          <ImageStory src={story.images[0].desktop} borderRadius="4px" />
         </ImageBox>
         <BookmarkStoryDetail story={story} />
         <BookmarkButton setIsModalShow={setIsModalShow} />

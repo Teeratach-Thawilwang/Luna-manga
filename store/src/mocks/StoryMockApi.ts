@@ -48,8 +48,8 @@ function createStoryShow(params: StoryShowParams): StoryShowResponse {
         id: 1,
         original: image,
         desktop: image,
-        mobile: image,
-        thumbnail: image,
+        // mobile: image,
+        // thumbnail: image,
         collection_name: CollectionEnum.STORY_IMAGE,
       },
     ],
@@ -62,8 +62,8 @@ function createReaction(params?: StoryReactionParams): StoryReactionResponse {
   let isLike = randomArray([true, false]);
   let isDislike = randomArray([true, false]);
   if (params) {
-    isLike = params?.like ?? params.like == 1 ? true : false;
-    isDislike = params?.dislike ?? params.dislike == 1 ? true : false;
+    isLike = (params?.like ?? params.like == 1) ? true : false;
+    isDislike = (params?.dislike ?? params.dislike == 1) ? true : false;
   }
   return {
     like: faker.number.int({ min: 10, max: 100 }),

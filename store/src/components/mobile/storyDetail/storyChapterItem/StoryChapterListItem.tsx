@@ -18,7 +18,7 @@ export default function StoryChapterListItem({ chapter }: { chapter: StoryChapte
     <Box to={`/story/${slug}/${chapter.chapter_number}`} $isLoading={isLoading}>
       {boxLoadingElement}
       <ImageBox>
-        <ImageChapterCover src={chapter.cover_images[0].thumbnail} aspectRatio={1} />
+        <ImageChapterCover src={chapter.cover_images[0].desktop} aspectRatio={1} />
       </ImageBox>
       <StoryChapterListItemDetail chapter={chapter} />
     </Box>

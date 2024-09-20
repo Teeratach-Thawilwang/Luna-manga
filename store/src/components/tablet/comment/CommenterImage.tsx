@@ -17,7 +17,7 @@ export default function CommenterImage({ commenter }: { commenter: CommenterInte
 
   return (
     <Box to={`/profile/${commenter.id}`}>
-      <Image src={commenter.images[0].thumbnail} />
+      <Image src={commenter.images[0].desktop} />
     </Box>
   );
 }
