@@ -25,9 +25,8 @@ export default React.memo(function CenterModal({ isShow, setShow, children, dela
 
   return (
     <FadeInFadeOut isShow={isShow} delay={delay}>
-      <Plane onClick={() => setIsShowState((prev) => prev + 1)}>
-        <Box onClick={() => setIsShowState((prev) => prev - 1)}>{children}</Box>
-      </Plane>
+      <Plane onClick={() => setIsShowState((prev) => prev + 1)} />
+      <Box onClick={() => setIsShowState((prev) => prev - 1)}>{children}</Box>
     </FadeInFadeOut>
   );
 });
