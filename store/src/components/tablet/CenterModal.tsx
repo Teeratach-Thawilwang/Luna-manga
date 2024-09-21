@@ -1,6 +1,6 @@
 ﻿import { rgba } from "polished";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import styled from "styled-components";
 
@@ -15,18 +15,10 @@ interface CenterModalInterface {
 }
 
 export default React.memo(function CenterModal({ isShow, setShow, children, delay = 100 }: CenterModalInterface) {
-  const [isShowState, setIsShowState] = useState<number>(0);
-
-  useEffect(() => {
-    if (isShowState != 0) {
-      setShow(false);
-    }
-  }, [isShowState]);
-
   return (
     <FadeInFadeOut isShow={isShow} delay={delay}>
-      <Plane onClick={() => setIsShowState((prev) => prev + 1)} />
-      <Box onClick={() => setIsShowState((prev) => prev - 1)}>{children}</Box>
+      <Plane onClick={() => setShow(!isShow)} />
+      <Box>{children}</Box>
     </FadeInFadeOut>
   );
 });
