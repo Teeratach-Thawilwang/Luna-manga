@@ -35,7 +35,7 @@ export default function ChapterContent() {
     <Box>
       <ChapterHeader namePosition="Top" />
       {isAudioNodeExist ? <RequestAudioUsage /> : null}
-      <ChapterNodes nodes={nodes} isAudioAccept={isAudioAccept} />
+      <ChapterNodes nodes={nodes} isAudioAccept={isAudioAccept} chapterType={chapter.type}/>
       <ChapterHeader />
     </Box>
   );

@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 
 import RenderAudio from "@components/tablet/chapterDetail/RenderAudio";
 import RenderText from "@components/tablet/chapterDetail/RenderText";
+import { CategoryTypeEnum } from "@enums/CategoryTypeEnum";
 import { ElementTypeEnum } from "@enums/SlateEditorEnum";
 import { MangaEditorElement, TextEditorElement } from "@interfaces/EditorInterface";
 import { addEventScroll } from "@utils/Hooks";
@@ -12,11 +13,12 @@ import { box } from "@utils/Themes";
 interface ChapterNodesInterface {
   nodes: TextEditorElement[] | MangaEditorElement[];
   isAudioAccept: boolean;
+  chapterType: CategoryTypeEnum;
 }
 
-export default function ChapterNodes({ nodes, isAudioAccept }: ChapterNodesInterface) {
+export default function ChapterNodes({ nodes, isAudioAccept, chapterType }: ChapterNodesInterface) {
   const footerRef = useRef<HTMLDivElement | null>(null);
-  const skipNodeNumber = 2;
+  const skipNodeNumber = chapterType == CategoryTypeEnum.NOVEL ? nodes.length : 2;
   const initialRenderNodes = [...nodes.slice(0, skipNodeNumber)];
   const [isAdding, setIsAdding] = useState(false);
   const [renderNodes, setRenderNodes] = useState<TextEditorElement[] | MangaEditorElement[]>(initialRenderNodes);
