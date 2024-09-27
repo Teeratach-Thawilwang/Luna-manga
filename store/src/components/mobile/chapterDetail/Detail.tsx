@@ -29,21 +29,41 @@ export default React.memo(function Detail() {
     );
   }
   return (
-    <Box>
-      <Logo />
-      <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_GROUP} />
+    <>
+      <Box>
+        <Logo />
+        <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_GROUP} />
+      </Box>
       <ChapterContent />
-      {isLoggedIn == true ? <ChapterReactionVote /> : null}
-      <WidgetItem type={WidgetTypeEnum.STORY_LIST} />
-      {isCommentLoaded == true ? <ChapterComment /> : null}
-      <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_MEDIUM} />
-      <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_SMALL} />
-      <WidgetItem type={WidgetTypeEnum.STORY_WINDOW} />
-    </Box>
+      <BoxBottom>
+        {isLoggedIn == true ? <ChapterReactionVote /> : null}
+        <WidgetItem type={WidgetTypeEnum.STORY_LIST} />
+        {isCommentLoaded == true ? <ChapterComment /> : null}
+        <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_MEDIUM} />
+        <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_SMALL} />
+        <WidgetItem type={WidgetTypeEnum.STORY_WINDOW} />
+      </BoxBottom>
+    </>
   );
 });
 
 const Box = styled.div`
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0;
+  padding: 0 5px;
+
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+`;
+
+const BoxBottom = styled.div`
   /* border: 1px solid red; */
   box-sizing: border-box;
   width: 100%;

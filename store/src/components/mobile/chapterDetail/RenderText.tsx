@@ -20,6 +20,7 @@ const Box = styled.p<{ $textalign: string; $fontFamily: string; $fontSize: numbe
   /* border: 1px solid red; */
   box-sizing: border-box;
   margin: 0px;
+  padding: 0 5px;
 
   color: ${(props) => color(props).onSurface};
 
