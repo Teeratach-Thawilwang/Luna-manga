@@ -88,6 +88,7 @@ const Text = styled.div`
   white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
   overflow: hidden; /* ทำให้เนื้อหาที่เกินซ่อนไว้ */
   text-overflow: ellipsis;
+  text-align: center;
 `;
 
 const IconBox = styled.div`
