@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { styled } from "styled-components";
@@ -13,6 +13,8 @@ import MenuModal from "@components/mobile/navbar/menu/MenuModal";
 import SearchModal from "@components/mobile/navbar/searchBox/SearchModal";
 import SignInSignUpModal from "@components/mobile/navbar/signInSignUp/SignInSignUpModal";
 import { NavigationModelEnum } from "@enums/NavigationModelEnum";
+import AuthService from "@services/AuthService";
+import SignInSignUpService from "@services/SignInSignUpService";
 import { useHideScrollBar, useScroll } from "@utils/Hooks";
 import { box, color } from "@utils/Themes";
 
@@ -31,7 +33,15 @@ export default function Navbar() {
   const isMenuModalShow = active == NavigationModelEnum.MENU;
   const isGroupModelShow = isSignInSignUpModalShow || isMenuModalShow;
 
+  const isFirstRender = useRef(true);
+  const isRequestSignInSignUpShow = useRef(false);
+  const isPreviousNavModal = useRef(NavigationModelEnum.NONE);
+  const isShow = SignInSignUpService.getter<boolean>("isShow");
+  const isLoggedIn = AuthService.isLogin();
+  isRequestSignInSignUpShow.current = isShow;
+
   useEffect(() => {
+    isFirstRender.current = false;
     return () => {
       unsetScrollFreeze(scrollY);
     };
@@ -40,6 +50,31 @@ export default function Navbar() {
   useEffect(() => {
     setScrollFreezeWhenActiveNotEmpty(active, scrollY, setScrollY);
   }, [active]);
+
+  useEffect(() => {
+    if (isLoggedIn && !isFirstRender.current) return;
+    const isNavModalNone = active == NavigationModelEnum.NONE;
+    const isPreviosModalNotSignIn = isPreviousNavModal.current != NavigationModelEnum.SIGNIN;
+    const isPreviosModalNotSearch = isPreviousNavModal.current != NavigationModelEnum.SEARCH;
+    const isPreviousNavModalNone = isPreviosModalNotSignIn && isPreviosModalNotSearch;
+    const isPathnameValid = pathname != "/" && pathname != "/category";
+    const case1 = isRequestSignInSignUpShow.current && isNavModalNone && isPreviousNavModalNone && isPathnameValid;
+    const case2 = isRequestSignInSignUpShow.current && isNavModalNone && !isPreviousNavModalNone && isPathnameValid;
+
+    if (case1) {
+      setActive(NavigationModelEnum.SIGNIN);
+      return;
+    }
+    if (case2) {
+      SignInSignUpService.setIsShow(false);
+      setActive(NavigationModelEnum.NONE);
+      return;
+    }
+
+    return () => {
+      isPreviousNavModal.current = active;
+    };
+  }, [isShow, active, pathname]);
 
   return (
     <>

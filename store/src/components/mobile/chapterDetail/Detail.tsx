@@ -7,6 +7,7 @@ import Logo from "@components/mobile/Logo";
 import WidgetItem from "@components/mobile/WidgetItem";
 import ChapterContent from "@components/mobile/chapterDetail/ChapterContent";
 import ChapterReactionVote from "@components/mobile/chapterDetail/ChapterReactionVote";
+import ForceSigninModal from "@components/mobile/chapterDetail/ForceSigninModal";
 import ChapterComment from "@components/mobile/chapterDetail/comment/ChapterComment";
 import { WidgetTypeEnum } from "@enums/WidgetTypeEnum";
 import AuthService from "@services/AuthService";
@@ -34,7 +35,7 @@ export default React.memo(function Detail() {
         <Logo />
         <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_GROUP} />
       </Box>
-      <ChapterContent />
+      {isLoggedIn == false ? <ForceSigninModal /> : <ChapterContent />}
       <BoxBottom>
         {isLoggedIn == true ? <ChapterReactionVote /> : null}
         <WidgetItem type={WidgetTypeEnum.STORY_LIST} />

@@ -6,6 +6,7 @@ import BoxLoading from "@components/tablet/BoxLoading";
 import WidgetItem from "@components/tablet/WidgetItem";
 import ChapterContent from "@components/tablet/chapterDetail/ChapterContent";
 import ChapterReactionVote from "@components/tablet/chapterDetail/ChapterReactionVote";
+import ForceSigninModal from "@components/tablet/chapterDetail/ForceSigninModal";
 import ChapterComment from "@components/tablet/chapterDetail/comment/ChapterComment";
 import { WidgetTypeEnum } from "@enums/WidgetTypeEnum";
 import AuthService from "@services/AuthService";
@@ -30,7 +31,7 @@ export default React.memo(function Detail() {
   return (
     <Box>
       <WidgetItem type={WidgetTypeEnum.ADVERTISEMENT_GROUP} />
-      <ChapterContent />
+      {isLoggedIn == false ? <ForceSigninModal /> : <ChapterContent />}
       {isLoggedIn == true ? <ChapterReactionVote /> : null}
       <WidgetItem type={WidgetTypeEnum.STORY_LIST} />
       {isCommentLoaded == true ? <ChapterComment /> : null}
