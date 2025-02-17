@@ -19,7 +19,10 @@ class ChapterApi {
     if (ChapterMockApi) {
       return ChapterMockApi.show(params, true);
     }
-    return ApiClient.get<ChapterShowParams, ChapterShowResponse>(`${this.baseUrl}/story/${params.slug}/chapter/${params.chapter_number}`, params);
+    return ApiClient.get<ChapterShowParams, ChapterShowResponse>(
+      `${this.baseUrl}/story/${params.slug}/chapter/${params.chapter_number}?nocache=${Date.now()}`,
+      params,
+    );
   }
 
   public async reaction(params: ChapterReactionParams): ReturnType<ChapterReactionResponse> {
