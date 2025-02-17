@@ -30,7 +30,8 @@ class CookieService {
     return Cookies.get("refresh_token");
   }
 
-  public setLoggedIn(): void {
+  public setLoggedIn(expiredDays: number = 7): void {
+    this.option.expires = expiredDays;
     Cookies.set("is_login", "true", this.option);
   }
 
@@ -40,7 +41,7 @@ class CookieService {
     Cookies.remove("refresh_token", this.option);
   }
 
-  public setAccessToken(accessToken: string, expiredDays: number = 1): void {
+  public setAccessToken(accessToken: string, expiredDays: number = 7): void {
     this.option.expires = expiredDays;
     Cookies.set("access_token", accessToken, this.option);
   }

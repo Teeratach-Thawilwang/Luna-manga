@@ -95,9 +95,9 @@ class AuthService {
 
     AuthApi.sessionToken(params)
       .then((response) => {
-        CookieService.setAccessToken(response.access_token, response.access_token_expired_day);
+        CookieService.setAccessToken(response.access_token, response.refresh_token_expired_day);
         CookieService.setRefreshToken(response.refresh_token, response.refresh_token_expired_day);
-        CookieService.setLoggedIn();
+        CookieService.setLoggedIn(response.refresh_token_expired_day);
         reloadPage();
       })
       .catch((e: AxiosResponseError) => {
