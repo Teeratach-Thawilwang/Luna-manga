@@ -14,7 +14,7 @@
 
 ---
 
-### [Preview](#preview)
+### [Preview](#index)
 - [▶️ Video](https://drive.google.com/file/d/1h7yy3vXf69Iix55hTbi401QmNXm-fshx/view)
 
 
