@@ -1,8 +1,5 @@
-# Preview [Mock]
-[▶️ Video](https://drive.google.com/file/d/1h7yy3vXf69Iix55hTbi401QmNXm-fshx/view)
-
 ﻿# Index
-
+- [Preview](#preview)
 - [Setup VPS](#setup-vps)
   - [1. Copy deploy material to server](#1-copy-deploy-material-to-server)
   - [2. Install docker, docker-compose, nano](#2-install-docker-docker-compose-nano)
@@ -16,6 +13,10 @@
 - [Deployment](#deployment)
 
 ---
+
+### [Preview](#preview)
+- [▶️ Video](https://drive.google.com/file/d/1h7yy3vXf69Iix55hTbi401QmNXm-fshx/view)
+
 
 ### [Setup VPS](#index)
 
