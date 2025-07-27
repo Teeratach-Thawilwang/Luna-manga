@@ -16,6 +16,7 @@
 
 ### [Preview](#index)
 - [▶️ Video](https://drive.google.com/file/d/1h7yy3vXf69Iix55hTbi401QmNXm-fshx/view)
+- [Figma - Backoffice](https://www.figma.com/design/usjqgMEjWdbY8vxucNGOP7/Lunar-Manga-Platform?node-id=0-1&t=FyLygJ0c6A7ttnl9-1)
 
 
 ### [Setup VPS](#index)
